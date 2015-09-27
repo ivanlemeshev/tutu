@@ -8,12 +8,16 @@ class RoutesController < ApplicationController
   end
 
   def new
+    @route = Route.new
   end
 
   def create
     @route = Route.new(route_params)
-    @route.save
-    redirect_to @route
+    if @route.save
+      redirect_to @route
+    else
+      render 'new'
+    end
   end
 
   private
