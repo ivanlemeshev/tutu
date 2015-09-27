@@ -3,11 +3,14 @@
 <table>
   <tr>
     <th>Title</th>
+    <th colspan="2"></th>
   </tr>
 
   <% @routes.each do |route| %>
     <tr>
       <td><%= route.title %></td>
+      <td><%= link_to 'Show', route_path(route) %></td>
+      <td><%= link_to 'Edit', edit_route_path(route) %></td>
     </tr>
   <% end %>
 </table>

@@ -1,6 +1,6 @@
-<h1>New Route</h1>
+<h1>Editing Route</h1>
 
-<%= form_for :route, url: routes_path do |f| %>
+<%= form_for :route, url: route_path(@route), method: :patch do |f| %>
 
   <% if @route.errors.any? %>
     <div id="error_explanation">
