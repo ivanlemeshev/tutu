@@ -7,20 +7,20 @@
         prohibited this route from being saved:
       </h2>
       <ul>
-        <% @route.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <% @route.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <p>
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </p>
+  </div>
 
-  <p>
+  <div class="actions">
     <%= f.submit %>
-  </p>
+  </div>
 
 <% end %>

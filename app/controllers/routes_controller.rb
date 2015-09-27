@@ -1,10 +1,11 @@
 class RoutesController < ApplicationController
+  before_action :set_route, only: [:show, :edit, :update, :destroy]
+
   def index
     @routes = Route.all
   end
 
   def show
-    @route = Route.find(params[:id])
   end
 
   def new
@@ -12,34 +13,36 @@ class RoutesController < ApplicationController
   end
 
   def edit
-    @route = Route.find(params[:id])
   end
 
   def create
     @route = Route.new(route_params)
+
     if @route.save
-      redirect_to @route
+      redirect_to @route, notice: 'Route was successfully created.'
     else
       render 'new'
     end
   end
 
   def update
-    @route = Route.find(params[:id])
     if @route.update(route_params)
-      redirect_to @route
+      redirect_to @route, notice: 'Route was successfully updated.'
     else
       render 'edit'
     end
   end
 
   def destroy
-    @route = Route.find(params[:id])
     @route.destroy
-    redirect_to routes_path
+    redirect_to routes_path, notice: 'Route was successfully destroyed.'
   end
 
   private
+
+  def set_route
+    @route = Route.find(params[:id])
+  end
 
   def route_params
     params.require(:route).permit(:title)
