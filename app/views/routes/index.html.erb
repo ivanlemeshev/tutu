@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Title</th>
-    <th colspan="2"></th>
+    <th colspan="3"></th>
   </tr>
 
   <% @routes.each do |route| %>
@@ -11,6 +11,9 @@
       <td><%= route.title %></td>
       <td><%= link_to 'Show', route_path(route) %></td>
       <td><%= link_to 'Edit', edit_route_path(route) %></td>
+      <td><%= link_to 'Destroy', route_path(route),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
