@@ -1,0 +1,13 @@
+<h1>Listing Routes</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+
+  <% @routes.each do |route| %>
+    <tr>
+      <td><%= route.title %></td>
+    </tr>
+  <% end %>
+</table>
