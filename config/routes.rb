@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :railway_stations
   resources :routes
 
+  patch 'routes/:id/add_station' => 'routes#add_station', as: :add_station
+  delete 'routes/:id/:station_id/destroy_station' => 'routes#destroy_station', as: :destroy_station
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
