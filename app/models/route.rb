@@ -3,4 +3,5 @@ class Route < ActiveRecord::Base
 
   has_many :station_routes
   has_many :railway_stations, through: :station_routes
+  has_many :trains
 end
