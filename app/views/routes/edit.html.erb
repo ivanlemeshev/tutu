@@ -7,7 +7,7 @@
 <%= form_for @route, url: add_station_path do |f| %>
 
   <div class="field">
-    <label for="station_id">Railway Stations</label></br>
+    <label for="station_id">Add Railway Station to the Route</label></br>
     <select name="station_id">
       <%= @railway_stations.each do |station| %>
         <option value="<%= station.id %>"><%= station.title %></option>
@@ -21,17 +21,19 @@
 
 <% end %>
 
-<ol>
-<% @route.railway_stations.each do |station| %>
-  <li>
-    <%= station.title %>
-    <%= link_to 'Destroy',
-                destroy_station_path(station_id: station.id),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-  </li>
-<% end %>
-</ol>
+<table>
+  <tbody>
+    <% @route.railway_stations.each do |station| %>
+      <tr>
+        <td><%= station.title %></td>
+        <td><%= link_to 'Destroy',
+                        destroy_station_path(station_id: station.id),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Show', @route %> |
 <%= link_to 'Back', routes_path %>
