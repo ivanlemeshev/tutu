@@ -1,0 +1,15 @@
+<p>
+  <strong>Trains on the Route:</strong>
+</p>
+
+<p>
+  <% if @route.trains.empty? %>
+    Empty list
+  <% else %>
+  <ul>
+    <% @route.trains.each do |train| %>
+      <li><%= train.number %></li>
+    <% end %>
+  </ul>
+<% end%>
+</p>
