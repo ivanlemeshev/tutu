@@ -1,0 +1,16 @@
+<%= form_for @route, url: add_station_path do |f| %>
+
+  <div class="field">
+    <label for="station_id">Add Railway Station to the Route</label></br>
+    <select name="station_id">
+      <%= @railway_stations.each do |station| %>
+        <option value="<%= station.id %>"><%= station.title %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Add Station' %>
+  </div>
+
+<% end %>
