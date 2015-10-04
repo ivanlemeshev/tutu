@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @car.kind_name %>
+</p>
+
+<p>
+  <strong>Train:</strong>
+  <% if @car.train.present? %>
+    <%= @car.train.number %>
+  <% else %>
+    not set
+  <% end%>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
