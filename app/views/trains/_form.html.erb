@@ -7,6 +7,11 @@
     <%= f.text_field :number %>
   </div>
 
+  <div class="field">
+    <%= f.label :route_id, 'Route' %><br>
+    <%= f.collection_select :route_id, Route.all, :id, :title %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
