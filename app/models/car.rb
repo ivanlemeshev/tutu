@@ -1,5 +1,5 @@
 class Car < ActiveRecord::Base
-  KINDS = { passenger: 1, cargo: 2 }
+  KINDS = { compartment: 1, economy: 2 }
 
   validates :kind, :up_place_count, :down_place_count, presence: true
   validates :up_place_count, :down_place_count, numericality: { only_integer: true }
