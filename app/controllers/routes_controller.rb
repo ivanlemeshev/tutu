@@ -48,7 +48,7 @@ class RoutesController < ApplicationController
     else
       notice = 'Error occurred.'
     end
-    redirect_to proc { edit_route_path(@route) }, notice: notice
+    redirect_to edit_route_path(@route), notice: notice
   end
 
   def destroy_station
@@ -58,7 +58,7 @@ class RoutesController < ApplicationController
     else
       notice = 'Error occurred.'
     end
-    redirect_to proc { edit_route_path(@route) }, notice: notice
+    redirect_to edit_route_path(@route), notice: notice
   end
 
   private
