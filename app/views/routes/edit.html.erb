@@ -4,15 +4,5 @@
 
 <%= render 'form' %>
 
-<%= render 'add_railway_station_form' %>
-
-<table>
-  <tbody>
-    <% @route.railway_stations.each do |station| %>
-      <%= render 'railway_station', station: station %>
-    <% end %>
-  </tbody>
-</table>
-
 <%= link_to 'Show', @route %> |
 <%= link_to 'Back', routes_path %>
