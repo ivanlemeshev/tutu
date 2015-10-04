@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20151004221409) do
 
   create_table "cars", force: :cascade do |t|
-    t.integer  "type"
+    t.integer  "kind"
     t.integer  "up_place_count"
     t.integer  "down_place_count"
     t.datetime "created_at",       null: false
