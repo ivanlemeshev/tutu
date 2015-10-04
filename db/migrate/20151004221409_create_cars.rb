@@ -8,6 +8,6 @@ class CreateCars < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_belongs_to :trains, :car
+    add_belongs_to :cars, :train
   end
 end
