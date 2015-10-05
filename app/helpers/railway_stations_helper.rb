@@ -1,2 +1,0 @@
-module RailwayStationsHelper
-end

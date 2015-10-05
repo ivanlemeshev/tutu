@@ -6,6 +6,36 @@
 </p>
 
 <p>
+  <strong>Compartment cars count:</strong>
+  <%= @train.compartment_cars.count %>
+</p>
+
+<p>
+  <strong>Compartment down place count:</strong>
+  <%= @train.compartment_place_count(:down) %>
+</p>
+
+<p>
+  <strong>Compartment up count:</strong>
+  <%= @train.compartment_place_count(:up) %>
+</p>
+
+<p>
+  <strong>Economy cars count:</strong>
+  <%= @train.economy_cars.count %>
+</p>
+
+<p>
+  <strong>Economy down place count:</strong>
+  <%= @train.economy_place_count(:down) %>
+</p>
+
+<p>
+  <strong>Economy up count:</strong>
+  <%= @train.economy_place_count(:up) %>
+</p>
+
+<p>
   <strong>Route:</strong>
   <% if @train.route.present? %>
     <%= @train.route.title %>

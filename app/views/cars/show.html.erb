@@ -6,6 +6,16 @@
 </p>
 
 <p>
+  <strong>Down place count:</strong>
+  <%= @car.down_place_count %>
+</p>
+
+<p>
+  <strong>Up place count:</strong>
+  <%= @car.up_place_count %>
+</p>
+
+<p>
   <strong>Train:</strong>
   <% if @car.train.present? %>
     <%= @car.train.number %>
