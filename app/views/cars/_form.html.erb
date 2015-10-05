@@ -1,0 +1,29 @@
+<%= form_for(@car) do |f| %>
+
+  <%= render 'common/errors', resource: @car %>
+
+  <div class="field">
+    <%= f.label :kind %><br>
+    <%= f.select :kind, Car::KINDS, { include_blank: true } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :down_place_count %><br>
+    <%= f.text_field :down_place_count %>
+  </div>
+
+  <div class="field">
+    <%= f.label :up_place_count %><br>
+    <%= f.text_field :up_place_count %>
+  </div>
+
+  <div class="field">
+    <%= f.label :train_id, 'Train' %><br>
+    <%= f.collection_select :train_id, Train.all, :id, :number, { include_blank: true } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

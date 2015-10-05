@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: [:show, :edit, :update, :destroy, :add_station, :destroy_station]
+  before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   def index
     @routes = Route.all
@@ -40,27 +40,6 @@ class RoutesController < ApplicationController
     redirect_to routes_path, notice: 'Route was successfully destroyed.'
   end
 
-  def add_station
-    station = RailwayStation.find(params[:station_id])
-    @route.railway_stations << station
-    if @route.save
-      notice = 'Railway station was successfully added.'
-    else
-      notice = 'Error occurred.'
-    end
-    redirect_to proc { edit_route_path(@route) }, notice: notice
-  end
-
-  def destroy_station
-    station = RouteStation.find_by(route_id: params[:id], railway_station_id: params[:station_id])
-    if station.destroy
-      notice = 'Railway station was successfully removed.'
-    else
-      notice = 'Error occurred.'
-    end
-    redirect_to proc { edit_route_path(@route) }, notice: notice
-  end
-
   private
 
   def set_route
@@ -68,6 +47,6 @@ class RoutesController < ApplicationController
   end
 
   def route_params
-    params.require(:route).permit(:title)
+    params.require(:route).permit(:title, railway_station_ids: [])
   end
 end

@@ -5,15 +5,9 @@
   <%= @route.title %>
 </p>
 
-<table>
-  <tbody>
-  <% @route.railway_stations.each do |station| %>
-    <tr>
-      <td><%= station.title %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render 'route_railway_stations' %>
+
+<%= render 'route_trains' %>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

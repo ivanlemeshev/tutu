@@ -8,7 +8,23 @@
 </head>
 <body>
 
-<%= yield %>
+<header>
+  <nav>
+    <%= link_to 'Railway Stations', railway_stations_path %>
+    <%= link_to 'Routes', routes_path %>
+    <%= link_to 'Trains', trains_path %>
+    <%= link_to 'Cars', cars_path %>
+  </nav>
+</header>
+
+<section>
+  <%= yield %>
+</section>
+
+<footer>
+  &copy; <%= Time.now.year %> Ivan Lemeshev.
+  Training project in the online school Thinknetica.
+</footer>
 
 </body>
 </html>
