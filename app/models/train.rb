@@ -6,8 +6,13 @@ class Train < ActiveRecord::Base
   has_many :tickets
   has_many :cars
 
-  has_many :compartment_cars, -> { compartment }, class_name: 'Car', foreign_key: 'train_id'
-  has_many :economy_cars, -> { economy }, class_name: 'Car', foreign_key: 'train_id'
+  def compartment_cars
+    cars.compartment
+  end
+
+  def economy_cars
+    cars.economy
+  end
 
   def compartment_place_count(type)
     compartment_cars.sum("#{type}_place_count")
