@@ -6,19 +6,29 @@
 </p>
 
 <p>
-  <strong>Down place count:</strong>
+  <strong>Bottom seats:</strong>
   <%= @car.bottom_seats %>
 </p>
 
 <p>
-  <strong>Up place count:</strong>
+  <strong>Top seats:</strong>
   <%= @car.top_seats %>
+</p>
+
+<p>
+  <strong>Side bottom seats:</strong>
+  <%= @car.side_bottom_seats %>
+</p>
+
+<p>
+  <strong>Side top seats:</strong>
+  <%= @car.side_top_seats %>
 </p>
 
 <p>
   <strong>Train:</strong>
   <% if @car.train.present? %>
-    <%= @car.train.number %>
+    <%= link_to @car.train.number, train_path(@car.train) %>
   <% else %>
     not set
   <% end%>
