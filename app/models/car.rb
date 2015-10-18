@@ -27,7 +27,7 @@ class Car < ActiveRecord::Base
   end
 
   def next_serial_number
-    cars = Car.where(train_id: self.train_id).all
+    cars = Car.where(train: train).all
     return 1 if cars.empty?
     cars.last.serial_number + 1
   end

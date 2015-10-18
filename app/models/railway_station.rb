@@ -5,12 +5,19 @@ class RailwayStation < ActiveRecord::Base
   validates :title, presence: true
 
   def update_position(route, order)
-    route_station = RouteStation.find_by(route_id: route.id, railway_station_id: self.id)
+    route_station = route_station_by_route(route)
     route_station.order = order
     route_station.save
+    route.save
   end
 
   def position(route)
-    RouteStation.find_by(route_id: route.id, railway_station_id: self.id).order
+    route_station_by_route(route).order
+  end
+
+  private
+
+  def route_station_by_route(route)
+    RouteStation.find_by(route: route, railway_station_id: self)
   end
 end
