@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   resources :trains
   resources :cars
-  resources :railway_stations
   resources :routes
   resources :tickets
+
+  resources :railway_stations do
+    patch 'update_position', on: :member
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,10 +6,21 @@
   <% if @route.railway_stations.empty? %>
     Empty list
   <% else %>
-  <ul>
-    <% @route.railway_stations.each do |station| %>
-      <li><%= station.title %></li>
-    <% end %>
-  </ul>
+  <table>
+    <tbody>
+      <% @route.railway_stations.each do |station| %>
+        <tr>
+          <td><%= station.title %></td>
+          <td>
+            <%= form_tag update_position_railway_station_path(station), method: 'patch' do %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= text_field_tag :order, station.position(@route)  %>
+              <%= submit_tag 'Save' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end%>
 </p>
