@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20151018124030) do
 
   create_table "cars", force: :cascade do |t|
-    t.integer  "kind"
     t.integer  "top_seats"
     t.integer  "bottom_seats"
     t.datetime "created_at",        null: false

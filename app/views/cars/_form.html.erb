@@ -3,8 +3,8 @@
   <%= render 'common/errors', resource: @car %>
 
   <div class="field">
-    <%= f.label :kind %><br>
-    <%= f.select :kind, Car::KINDS, { include_blank: true } %>
+    <%= f.label :type %><br>
+    <%= f.select :type, Car::TYPES %>
   </div>
 
   <div class="field">
@@ -15,6 +15,16 @@
   <div class="field">
     <%= f.label :top_seats %><br>
     <%= f.text_field :top_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :side_bottom_seats %><br>
+    <%= f.text_field :side_bottom_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :side_top_seats %><br>
+    <%= f.text_field :side_top_seats %>
   </div>
 
   <div class="field">

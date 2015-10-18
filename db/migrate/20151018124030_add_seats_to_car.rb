@@ -5,5 +5,6 @@ class AddSeatsToCar < ActiveRecord::Migration
     add_column :cars, :side_top_seats, :integer
     add_column :cars, :side_bottom_seats, :integer
     add_column :cars, :type, :string
+    remove_column :cars, :kind
   end
 end

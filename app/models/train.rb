@@ -6,19 +6,11 @@ class Train < ActiveRecord::Base
 
   validates :number, presence: true, uniqueness: true
 
-  def compartment_cars
-    cars.compartment
+  def cars_by_type(type)
+    cars.send(type)
   end
 
-  def economy_cars
-    cars.economy
-  end
-
-  def compartment_place_count(type)
-    compartment_cars.sum("#{type}_place_count")
-  end
-
-  def economy_place_count(type)
-    economy_cars.sum("#{type}_place_count")
+  def car_seats(car_type, seat_type)
+    cars_by_type(car_type).sum("#{seat_type}_seats")
   end
 end

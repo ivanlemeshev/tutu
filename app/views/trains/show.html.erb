@@ -6,33 +6,63 @@
 </p>
 
 <p>
-  <strong>Compartment cars count:</strong>
-  <%= @train.compartment_cars.count %>
+  <strong>Premium cars:</strong>
+  <%= @train.cars_by_type(:premium).count %>
 </p>
 
 <p>
-  <strong>Compartment down place count:</strong>
-  <%= @train.compartment_place_count(:down) %>
+  <strong>Premium bottom seats:</strong>
+  <%= @train.car_seats(:premium, :bottom) %>
 </p>
 
 <p>
-  <strong>Compartment up count:</strong>
-  <%= @train.compartment_place_count(:up) %>
+  <strong>Coupe cars:</strong>
+  <%= @train.cars_by_type(:coupe).count %>
 </p>
 
 <p>
-  <strong>Economy cars count:</strong>
-  <%= @train.economy_cars.count %>
+  <strong>Coupe bottom seats:</strong>
+  <%= @train.car_seats(:coupe, :bottom) %>
 </p>
 
 <p>
-  <strong>Economy down place count:</strong>
-  <%= @train.economy_place_count(:down) %>
+  <strong>Coupe top seats:</strong>
+  <%= @train.car_seats(:coupe, :top) %>
 </p>
 
 <p>
-  <strong>Economy up count:</strong>
-  <%= @train.economy_place_count(:up) %>
+  <strong>Economy cars:</strong>
+  <%= @train.cars_by_type(:economy).count %>
+</p>
+
+<p>
+  <strong>Economy bottom seats:</strong>
+  <%= @train.car_seats(:economy, :bottom) %>
+</p>
+
+<p>
+  <strong>Economy top seats:</strong>
+  <%= @train.car_seats(:economy, :top) %>
+</p>
+
+<p>
+  <strong>Economy side bottom seats:</strong>
+  <%= @train.car_seats(:economy, :side_bottom) %>
+</p>
+
+<p>
+  <strong>Economy side top seats:</strong>
+  <%= @train.car_seats(:economy, :side_top) %>
+</p>
+
+<p>
+  <strong>Sitting cars:</strong>
+  <%= @train.cars_by_type(:sitting).count %>
+</p>
+
+<p>
+  <strong>Sitting seats:</strong>
+  <%= @train.car_seats(:sitting, :bottom) %>
 </p>
 
 <p>

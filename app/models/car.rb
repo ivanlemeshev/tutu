@@ -1,18 +1,17 @@
 class Car < ActiveRecord::Base
-  KIND_COMPARTMENT = 1
-  KIND_ECONOMY = 2
-
-  KINDS = { compartment: KIND_COMPARTMENT, economy: KIND_ECONOMY }
+  TYPES = { economy: 'EconomyCar', coupe: 'CoupeCar', premium: 'PremiumCar', sitting: 'SittingCar' }
 
   belongs_to :train
 
-  validates :kind, :top_seats, :bottom_seats, presence: true
-  validates :top_seats, :bottom_seats, numericality: { only_integer: true }
+  validates :type, :bottom_seats, presence: true
+  validates :bottom_seats, numericality: { only_integer: true }
 
-  scope :compartment, -> { where(kind: Car::KIND_COMPARTMENT) }
-  scope :economy, -> { where(kind: Car::KIND_ECONOMY) }
+  scope :coupe, -> { where(type: 'CoupeCar') }
+  scope :economy, -> { where(type: 'EconomyCar') }
+  scope :premium, -> { where(type: 'PremiumCar') }
+  scope :sitting, -> { where(type: 'SittingCar') }
 
-  def kind_name
-    KINDS.key(kind)
+  def type_name
+    self.type.gsub('Car', '').downcase
   end
 end
