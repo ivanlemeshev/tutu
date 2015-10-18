@@ -11,11 +11,7 @@ class Train < ActiveRecord::Base
     cars
   end
 
-  def cars_by_type(type)
-    cars.send(type)
-  end
-
   def car_seats(car_type, seat_type)
-    cars_by_type(car_type).sum("#{seat_type}_seats")
+    Car.where(type: Car::TYPES[car_type], train_id: self.id).sum("#{seat_type}_seats")
   end
 end

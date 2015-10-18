@@ -1,6 +1,46 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Premium seats:</strong>
+  <%= @train.car_seats(:premium, :bottom) %>
+</p>
+
+<p>
+  <strong>Coupe bottom seats:</strong>
+  <%= @train.car_seats(:coupe, :bottom) %>
+</p>
+
+<p>
+  <strong>Coupe top seats:</strong>
+  <%= @train.car_seats(:coupe, :top) %>
+</p>
+
+<p>
+  <strong>Economy bottom seats:</strong>
+  <%= @train.car_seats(:economy, :bottom) %>
+</p>
+
+<p>
+  <strong>Economy top seats:</strong>
+  <%= @train.car_seats(:economy, :top) %>
+</p>
+
+<p>
+  <strong>Economy side bottom seats:</strong>
+  <%= @train.car_seats(:economy, :side_bottom) %>
+</p>
+
+<p>
+  <strong>Economy side top seats:</strong>
+  <%= @train.car_seats(:economy, :side_top) %>
+</p>
+
+<p>
+  <strong>Sitting seats:</strong>
+  <%= @train.car_seats(:sitting, :bottom) %>
+</p>
+
+<p>
   <strong>Cars:</strong>
   <% if @train.cars.present? %>
     <ul>
