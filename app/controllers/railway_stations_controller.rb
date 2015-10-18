@@ -41,6 +41,7 @@ class RailwayStationsController < ApplicationController
   def update_position
     route = Route.find(params[:route_id])
     @railway_station.update_position(route, params[:order])
+    route.save
     redirect_to route, notice: 'Order updated.'
   end
 
