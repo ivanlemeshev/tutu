@@ -6,6 +6,11 @@ class Train < ActiveRecord::Base
 
   validates :number, presence: true, uniqueness: true
 
+  def ordered_cars
+    return cars.reverse if cars_order
+    cars
+  end
+
   def cars_by_type(type)
     cars.send(type)
   end

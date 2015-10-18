@@ -4,7 +4,7 @@
   <strong>Cars:</strong>
   <% if @train.cars.present? %>
     <ul>
-      <% @train.cars.each do |car| %>
+      <% @train.ordered_cars.each do |car| %>
         <li><%= link_to "Car #{car.serial_number}", car_path(car) %></li>
       <% end %>
     </ul>
