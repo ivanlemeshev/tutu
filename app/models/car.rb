@@ -7,6 +7,7 @@ class Car < ActiveRecord::Base
 
   validates :type, :serial_number, :bottom_seats, presence: true
   validates :serial_number, :bottom_seats, numericality: { only_integer: true }
+  validates :serial_number, uniqueness: { scope: :train_id }
 
   scope :coupe, -> { where(type: 'CoupeCar') }
   scope :economy, -> { where(type: 'EconomyCar') }
