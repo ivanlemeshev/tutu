@@ -6,8 +6,8 @@ class Car < ActiveRecord::Base
 
   belongs_to :train
 
-  validates :kind, :up_place_count, :down_place_count, presence: true
-  validates :up_place_count, :down_place_count, numericality: { only_integer: true }
+  validates :kind, :top_seats, :bottom_seats, presence: true
+  validates :top_seats, :bottom_seats, numericality: { only_integer: true }
 
   scope :compartment, -> { where(kind: Car::KIND_COMPARTMENT) }
   scope :economy, -> { where(kind: Car::KIND_ECONOMY) }

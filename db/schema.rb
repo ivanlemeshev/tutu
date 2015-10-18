@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018011320) do
+ActiveRecord::Schema.define(version: 20151018124030) do
 
   create_table "cars", force: :cascade do |t|
     t.integer  "kind"
-    t.integer  "up_place_count"
-    t.integer  "down_place_count"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "top_seats"
+    t.integer  "bottom_seats"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "train_id"
+    t.integer  "side_top_seats"
+    t.integer  "side_bottom_seats"
+    t.string   "type"
   end
 
   create_table "railway_stations", force: :cascade do |t|
