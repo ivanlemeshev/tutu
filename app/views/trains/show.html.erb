@@ -1,38 +1,56 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
-  <%= @train.number %>
+  <strong>Premium seats:</strong>
+  <%= @train.car_seats(:premium, :bottom) %>
 </p>
 
 <p>
-  <strong>Compartment cars count:</strong>
-  <%= @train.compartment_cars.count %>
+  <strong>Coupe bottom seats:</strong>
+  <%= @train.car_seats(:coupe, :bottom) %>
 </p>
 
 <p>
-  <strong>Compartment down place count:</strong>
-  <%= @train.compartment_place_count(:down) %>
+  <strong>Coupe top seats:</strong>
+  <%= @train.car_seats(:coupe, :top) %>
 </p>
 
 <p>
-  <strong>Compartment up count:</strong>
-  <%= @train.compartment_place_count(:up) %>
+  <strong>Economy bottom seats:</strong>
+  <%= @train.car_seats(:economy, :bottom) %>
 </p>
 
 <p>
-  <strong>Economy cars count:</strong>
-  <%= @train.economy_cars.count %>
+  <strong>Economy top seats:</strong>
+  <%= @train.car_seats(:economy, :top) %>
 </p>
 
 <p>
-  <strong>Economy down place count:</strong>
-  <%= @train.economy_place_count(:down) %>
+  <strong>Economy side bottom seats:</strong>
+  <%= @train.car_seats(:economy, :side_bottom) %>
 </p>
 
 <p>
-  <strong>Economy up count:</strong>
-  <%= @train.economy_place_count(:up) %>
+  <strong>Economy side top seats:</strong>
+  <%= @train.car_seats(:economy, :side_top) %>
+</p>
+
+<p>
+  <strong>Sitting seats:</strong>
+  <%= @train.car_seats(:sitting, :bottom) %>
+</p>
+
+<p>
+  <strong>Cars:</strong>
+  <% if @train.cars.present? %>
+    <ul>
+      <% @train.ordered_cars.each do |car| %>
+        <li><%= link_to "Car #{car.serial_number}", car_path(car) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    not set
+  <% end%>
 </p>
 
 <p>

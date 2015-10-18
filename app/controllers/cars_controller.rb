@@ -16,7 +16,7 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(car_params)
+    @car = car_params[:type].constantize.new(car_params)
 
     if @car.save
       redirect_to @car, notice: 'Car was successfully created.'
@@ -45,6 +45,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:kind, :up_place_count, :down_place_count, :train_id)
+    params.require(:car).permit(:type, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :train_id)
   end
 end

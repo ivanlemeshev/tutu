@@ -12,6 +12,11 @@
     <%= f.collection_select :route_id, Route.all, :id, :title %>
   </div>
 
+  <div class="field">
+    <%= f.label :cars_order, 'Set tail cars order' %><br>
+    <%= f.check_box :cars_order %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

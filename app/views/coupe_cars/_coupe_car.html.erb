@@ -1,0 +1,17 @@
+<tr>
+  <td><%= coupe_car.type_name %></td>
+  <td><%= coupe_car.bottom_seats %></td>
+  <td><%= coupe_car.top_seats %></td>
+  <td></td>
+  <td></td>
+  <td>
+    <% if coupe_car.train.present? %>
+      <%= coupe_car.train.number %>
+    <% else %>
+      not set
+    <% end %>
+  </td>
+  <td><%= link_to 'Show', car_path(coupe_car) %></td>
+  <td><%= link_to 'Edit', edit_car_path(coupe_car) %></td>
+  <td><%= link_to 'Destroy', car_path(coupe_car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

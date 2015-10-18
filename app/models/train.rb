@@ -1,24 +1,17 @@
 class Train < ActiveRecord::Base
-  validates :number, presence: true, uniqueness: true
-
   belongs_to :route
 
   has_many :tickets
   has_many :cars
 
-  def compartment_cars
-    cars.compartment
+  validates :number, presence: true, uniqueness: true
+
+  def ordered_cars
+    return cars.reverse if cars_order
+    cars
   end
 
-  def economy_cars
-    cars.economy
-  end
-
-  def compartment_place_count(type)
-    compartment_cars.sum("#{type}_place_count")
-  end
-
-  def economy_place_count(type)
-    economy_cars.sum("#{type}_place_count")
+  def car_seats(car_type, seat_type)
+    Car.where(type: Car::TYPES[car_type], train_id: self.id).sum("#{seat_type}_seats")
   end
 end

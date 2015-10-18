@@ -1,24 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Kind:</strong>
-  <%= @car.kind_name %>
+  <strong>Type:</strong>
+  <%= @car.type_name %>
 </p>
 
 <p>
-  <strong>Down place count:</strong>
-  <%= @car.down_place_count %>
+  <strong>Bottom seats:</strong>
+  <%= @car.bottom_seats %>
 </p>
 
 <p>
-  <strong>Up place count:</strong>
-  <%= @car.up_place_count %>
+  <strong>Top seats:</strong>
+  <%= @car.top_seats %>
+</p>
+
+<p>
+  <strong>Side bottom seats:</strong>
+  <%= @car.side_bottom_seats %>
+</p>
+
+<p>
+  <strong>Side top seats:</strong>
+  <%= @car.side_top_seats %>
 </p>
 
 <p>
   <strong>Train:</strong>
   <% if @car.train.present? %>
-    <%= @car.train.number %>
+    <%= link_to @car.train.number, train_path(@car.train) %>
   <% else %>
     not set
   <% end%>

@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position]
 
   def index
     @railway_stations = RailwayStation.all
@@ -36,6 +36,12 @@ class RailwayStationsController < ApplicationController
   def destroy
     @railway_station.destroy
     redirect_to railway_stations_path, notice: 'Railway station was successfully destroyed.'
+  end
+
+  def update_position
+    route = Route.find(params[:route_id])
+    @railway_station.update_position(route, params[:order])
+    redirect_to route, notice: 'Order updated.'
   end
 
   private
