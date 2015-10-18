@@ -4,10 +4,10 @@ class Car < ActiveRecord::Base
 
   KINDS = { compartment: KIND_COMPARTMENT, economy: KIND_ECONOMY }
 
+  belongs_to :train
+
   validates :kind, :up_place_count, :down_place_count, presence: true
   validates :up_place_count, :down_place_count, numericality: { only_integer: true }
-
-  belongs_to :train
 
   scope :compartment, -> { where(kind: Car::KIND_COMPARTMENT) }
   scope :economy, -> { where(kind: Car::KIND_ECONOMY) }

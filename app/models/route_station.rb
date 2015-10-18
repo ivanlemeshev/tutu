@@ -1,4 +1,6 @@
 class RouteStation < ActiveRecord::Base
+  default_scope { order(:order) }
+
   belongs_to :railway_station
   belongs_to :route
 
