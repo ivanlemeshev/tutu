@@ -22,6 +22,7 @@
           </p>
           <p>Departure time: <%= route.start_station.departure_time(route) %></p>
           <p>Arrival time: <%= route.start_station.arrival_time(route) %></p>
+          <p><%= link_to 'Buy ticket', new_train_ticket_path(train) %></p>
         </div>
       <% end %>
     <% end %>
