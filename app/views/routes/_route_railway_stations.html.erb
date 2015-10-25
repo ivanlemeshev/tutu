@@ -12,7 +12,7 @@
         <tr>
           <td><%= station.title %></td>
           <td>
-            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+            <%= form_tag update_params_railway_station_path(station), method: :patch do %>
               <%= hidden_field_tag :route_id, @route.id %><br>
               <table>
                 <tr>
