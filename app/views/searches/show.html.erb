@@ -1,0 +1,12 @@
+<h1>Search Tickets</h1>
+
+<%= form_tag search_path, method: :get, enforce_utf8: false do %>
+  <%=select_tag :start_station_id,
+                options_from_collection_for_select(RailwayStation.all, :id, :title, params[:start_station_id]),
+                include_blank: true %>
+  —
+  <%=select_tag :end_station_id,
+                options_from_collection_for_select(RailwayStation.all, :id, :title, params[:end_station_id]),
+                include_blank: true %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>

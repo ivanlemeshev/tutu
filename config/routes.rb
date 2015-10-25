@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     patch :update_position, on: :member
   end
 
+  resource :search, only: [:new, :show, :edit]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
