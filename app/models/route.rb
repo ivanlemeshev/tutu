@@ -11,7 +11,8 @@ class Route < ActiveRecord::Base
   private
 
   def set_title
-    self.title = "#{railway_stations.first.title} - #{railway_stations.last.title}" if railway_stations?
+    stations = railway_stations.ordered
+    self.title = "#{stations.first.title} - #{stations.last.title}" if railway_stations?
   end
 
   def stations_count

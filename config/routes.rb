@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :tickets
 
   resources :railway_stations do
-    patch 'update_position', on: :member
+    patch :update_position, on: :member
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

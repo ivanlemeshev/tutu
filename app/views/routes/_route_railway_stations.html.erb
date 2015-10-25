@@ -8,13 +8,13 @@
   <% else %>
   <table>
     <tbody>
-      <% @route.railway_stations.each do |station| %>
+      <% @route.railway_stations.ordered.each do |station| %>
         <tr>
           <td><%= station.title %></td>
           <td>
-            <%= form_tag update_position_railway_station_path(station), method: 'patch' do %>
+            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
               <%= hidden_field_tag :route_id, @route.id %>
-              <%= text_field_tag :order, station.position(@route)  %>
+              <%= number_field_tag :position, station.position_in(@route)  %>
               <%= submit_tag 'Save' %>
             <% end %>
           </td>
