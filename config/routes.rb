@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :trains
   resources :cars
   resources :routes
   resources :tickets
+
+  resources :trains do
+    resources :cars, shallow: true
+  end
 
   resources :railway_stations do
     patch :update_position, on: :member

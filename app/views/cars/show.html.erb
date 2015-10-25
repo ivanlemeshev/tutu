@@ -28,11 +28,11 @@
 <p>
   <strong>Train:</strong>
   <% if @car.train.present? %>
-    <%= link_to @car.train.number, train_path(@car.train) %>
+    <%= link_to @car.train.number, @car.train %>
   <% else %>
     not set
   <% end%>
 </p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Back', @car.train %>

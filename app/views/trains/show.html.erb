@@ -41,13 +41,33 @@
 </p>
 
 <p>
+  <%= link_to 'Add car', new_train_car_path(@train) %>
+</p>
+
+<p>
   <strong>Cars:</strong>
   <% if @train.cars.present? %>
-    <ul>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
       <% @train.ordered_cars.each do |car| %>
-        <li><%= link_to "Car #{car.serial_number}", car_path(car) %></li>
+        <tr>
+          <td><%= link_to "Car #{car.serial_number}", car %></td>
+          <td><%= link_to 'Edit', edit_car_path(car) %></td>
+          <td><%= link_to 'Destroy',
+                          car_path(car),
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       <% end %>
-    </ul>
+    </tbody>
+  </table>
   <% else %>
     not set
   <% end%>
