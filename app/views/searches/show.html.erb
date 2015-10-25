@@ -10,3 +10,20 @@
                 include_blank: true %>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
+
+<%  if @routes.present? %>
+  <% @routes.each do |route| %>
+    <%  if route.trains.present? %>
+      <% route.trains.each do |train| %>
+        <div>
+          <p>
+            <strong>Train #<%= train.number %></strong>
+            (<%= route.title %>)
+          </p>
+          <p>Departure time: <%= route.start_station.departure_time(route) %></p>
+          <p>Arrival time: <%= route.start_station.arrival_time(route) %></p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<%  end %>

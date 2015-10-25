@@ -8,11 +8,37 @@ class Route < ActiveRecord::Base
 
   before_validation :set_title
 
+  def self.search(params)
+    query = <<-SQL
+      SELECT * FROM routes WHERE
+        (SELECT railway_station_id
+         FROM route_stations
+         WHERE route_id = routes.id AND
+               position = (SELECT MIN(position)
+                           FROM route_stations
+                           WHERE route_id = routes.id)) = ? AND
+        (SELECT railway_station_id
+         FROM route_stations
+         WHERE route_id = routes.id AND
+               position = (SELECT MAX(position)
+                           FROM route_stations
+                           WHERE route_id = routes.id)) = ?
+    SQL
+    self.find_by_sql([query, params[:start_station_id], params[:end_station_id]])
+  end
+
+  def start_station
+    railway_stations.first
+  end
+
+  def end_station
+    railway_stations.last
+  end
+
   private
 
   def set_title
-    stations = railway_stations.ordered
-    self.title = "#{stations.first.title} - #{stations.last.title}" if railway_stations?
+    self.title = "#{start_station.title} - #{end_station.title}" if railway_stations?
   end
 
   def stations_count

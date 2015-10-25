@@ -4,8 +4,6 @@ class RailwayStation < ActiveRecord::Base
 
   validates :title, presence: true
 
-  scope :ordered, -> { joins(:route_stations).order('route_stations.position').uniq }
-
   def update_params(route, params)
     route_station = route_station(route)
     route_station.update(params) if route_station
