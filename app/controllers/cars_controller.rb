@@ -31,8 +31,9 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    train = @car.train
     @car.destroy
-    redirect_to @car.train, notice: 'Car was successfully destroyed.'
+    redirect_to train, notice: 'Car was successfully destroyed.'
   end
 
   private
