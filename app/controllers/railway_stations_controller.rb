@@ -1,4 +1,6 @@
 class RailwayStationsController < ApplicationController
+  include ApplicationHelper
+
   before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position]
 
   def index
@@ -40,7 +42,11 @@ class RailwayStationsController < ApplicationController
 
   def update_position
     @route = Route.find(params[:route_id])
-    @railway_station.update_position(@route, params[:position])
+    @railway_station.update_params(@route, {
+      position: params[:position],
+      departure_time: date_hash_to_datetime(params[:departure_time]),
+      arrival_time: date_hash_to_datetime(params[:arrival_time])
+    })
     redirect_to @route, notice: 'Order updated.'
   end
 

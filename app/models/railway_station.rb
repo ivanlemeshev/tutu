@@ -6,9 +6,9 @@ class RailwayStation < ActiveRecord::Base
 
   scope :ordered, -> { joins(:route_stations).order('route_stations.position').uniq }
 
-  def update_position(route, position)
+  def update_params(route, params)
     route_station = route_station(route)
-    route_station.update(position: position) if route_station
+    route_station.update(params) if route_station
     route.save
   end
 
@@ -16,7 +16,15 @@ class RailwayStation < ActiveRecord::Base
     route_station(route).try(:position)
   end
 
-  private
+  def departure_time(route)
+    route_station(route).try(:departure_time)
+  end
+
+  def arrival_time(route)
+    route_station(route).try(:arrival_time)
+  end
+
+  protected
 
   def route_station(route)
     @station_route ||= route_stations.where(route: route).first
