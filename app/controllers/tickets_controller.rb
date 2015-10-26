@@ -1,20 +1,18 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:show, :destroy]
   before_action :set_train, only: [:new, :create]
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.where(user_id: current_user.id).all
   end
 
   def show
+    redirect_to tickets_path, alert: 'You have no access to this page.' unless ticket_owner?
   end
 
   def new
     @ticket = Ticket.new
-  end
-
-  def edit
   end
 
   def create
@@ -27,17 +25,13 @@ class TicketsController < ApplicationController
     end
   end
 
-  def update
-    if @ticket.update(ticket_params)
-      redirect_to @ticket, notice: 'Ticket was successfully updated.'
-    else
-      render 'edit'
-    end
-  end
-
   def destroy
-    @ticket.destroy
-    redirect_to tickets_path, notice: 'Ticket was successfully destroyed.'
+    if ticket_owner?
+      @ticket.destroy
+      redirect_to tickets_path, notice: 'Ticket was successfully destroyed.'
+    else
+      redirect_to tickets_path, alert: 'You have no access to this page.'
+    end
   end
 
   private
@@ -48,6 +42,10 @@ class TicketsController < ApplicationController
 
   def set_train
     @train = Train.find(params[:train_id])
+  end
+
+  def ticket_owner?
+    @ticket.user_id == current_user.id
   end
 
   def ticket_params

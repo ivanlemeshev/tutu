@@ -1,0 +1,11 @@
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+</p>
+
+<%= render 'route_railway_stations' %>
+
+<%= render 'route_trains' %>
+
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>

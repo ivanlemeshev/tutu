@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutu</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <strong>
+    <%= link_to 'Dashboard', admin_path %>
+  </strong>
+  <nav>
+    <%= link_to 'Site', root_path %>
+    <%= link_to 'Railway Stations', admin_railway_stations_path %>
+    <%= link_to 'Routes', admin_routes_path %>
+    <%= link_to 'Trains', admin_trains_path %>
+    <%= link_to 'Tickets', admin_tickets_path %>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    (<%= current_user.email %>)
+  </nav>
+</header>
+
+<section>
+  <%= render 'common/flash' %>
+
+  <%= yield %>
+</section>
+
+<footer>
+  <%= render 'common/copyright' %>
+</footer>
+
+</body>
+</html>

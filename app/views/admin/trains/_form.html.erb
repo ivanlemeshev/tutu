@@ -1,0 +1,24 @@
+<%= form_for [:admin, @train] do |f| %>
+
+  <%= render 'common/errors', resource: @train %>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :route_id, 'Route' %><br>
+    <%= f.collection_select :route_id, Route.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cars_order, 'Set tail cars order' %><br>
+    <%= f.check_box :cars_order %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

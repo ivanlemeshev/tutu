@@ -1,0 +1,20 @@
+<tr>
+  <td><%= economy_car.type_name %></td>
+  <td><%= economy_car.bottom_seats %></td>
+  <td><%= economy_car.top_seats %></td>
+  <td><%= economy_car.side_bottom_seats %></td>
+  <td><%= economy_car.side_top_seats %></td>
+  <td>
+    <% if economy_car.train.present? %>
+      <%= economy_car.train.number %>
+    <% else %>
+      not set
+    <% end %>
+  </td>
+  <td><%= link_to 'Show', admin_car_path(economy_car) %></td>
+  <td><%= link_to 'Edit', edit_admin_car_path(economy_car) %></td>
+  <td><%= link_to 'Destroy',
+                  admin_car_path(economy_car),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+</tr>
