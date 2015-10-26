@@ -15,6 +15,13 @@
     <%= link_to 'Railway Stations', railway_stations_path %>
     <%= link_to 'Routes', routes_path %>
     <%= link_to 'Trains', trains_path %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      (<%= current_user.email %>)
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path %>
+    <% end%>
   </nav>
 </header>
 
