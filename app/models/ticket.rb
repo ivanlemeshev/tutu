@@ -1,9 +1,21 @@
 class Ticket < ActiveRecord::Base
   belongs_to :user
   belongs_to :train
-  belongs_to :start_station, class_name: 'RailwayStation', foreign_key: 'start_station_id'
-  belongs_to :end_station, class_name: 'RailwayStation', foreign_key: 'end_station_id'
 
-  validates :first_name, :last_name, presence: true
-  validates :train_id, :start_station_id, :end_station_id, presence: true
+  validates :first_name, :last_name, :middle_name, presence: true
+  validates :passport_series, :passport_number, :train_id, presence: true
+
+  def start_station
+    train.route.start_station if has_route?
+  end
+
+  def end_station
+    train.route.end_station if has_route?
+  end
+
+  protected
+
+  def has_route?
+    train.present? && train.route.present?
+  end
 end

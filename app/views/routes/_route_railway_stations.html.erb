@@ -12,10 +12,31 @@
         <tr>
           <td><%= station.title %></td>
           <td>
-            <%= form_tag update_position_railway_station_path(station), method: 'patch' do %>
-              <%= hidden_field_tag :route_id, @route.id %>
-              <%= text_field_tag :order, station.position(@route)  %>
-              <%= submit_tag 'Save' %>
+            <%= form_tag update_params_railway_station_path(station), method: :patch do %>
+              <%= hidden_field_tag :route_id, @route.id %><br>
+              <table>
+                <tr>
+                  <td>Position:</td>
+                  <td><%= number_field_tag :position, station.position_in(@route)  %></td>
+                </tr>
+                <tr>
+                  <td>Departure time: </td>
+                  <td><%= datetime_select :departure_time,
+                                          :date,
+                                          start_year: Time.now.year,
+                                          default: station.departure_time(@route) %></td>
+                </tr>
+                <tr>
+                  <td>Arrival time:</td>
+                  <td><%= datetime_select :arrival_time,
+                                          :date,
+                                          start_year: Time.now.year,
+                                          default: station.arrival_time(@route) %></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><%= submit_tag 'Change' %></td>
+                </tr>
+              </table>
             <% end %>
           </td>
         </tr>

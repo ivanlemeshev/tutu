@@ -1,4 +1,4 @@
-<%= form_for(@car) do |f| %>
+<%= form_for [@train, @car] do |f| %>
 
   <%= render 'common/errors', resource: @car %>
 
@@ -25,11 +25,6 @@
   <div class="field">
     <%= f.label :side_top_seats %><br>
     <%= f.text_field :side_top_seats %>
-  </div>
-
-  <div class="field">
-    <%= f.label :train_id, 'Train' %><br>
-    <%= f.collection_select :train_id, Train.all, :id, :number, { include_blank: true } %>
   </div>
 
   <div class="actions">

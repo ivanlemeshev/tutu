@@ -4,20 +4,27 @@ class RailwayStation < ActiveRecord::Base
 
   validates :title, presence: true
 
-  def update_position(route, order)
-    route_station = route_station_by_route(route)
-    route_station.order = order
-    route_station.save
+  def update_params(route, params)
+    route_station = route_station(route)
+    route_station.update(params) if route_station
     route.save
   end
 
-  def position(route)
-    route_station_by_route(route).order
+  def position_in(route)
+    route_station(route).try(:position)
   end
 
-  private
+  def departure_time(route)
+    route_station(route).try(:departure_time)
+  end
 
-  def route_station_by_route(route)
-    RouteStation.find_by(route: route, railway_station_id: self)
+  def arrival_time(route)
+    route_station(route).try(:arrival_time)
+  end
+
+  protected
+
+  def route_station(route)
+    @station_route ||= route_stations.where(route: route).first
   end
 end

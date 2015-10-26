@@ -1,0 +1,30 @@
+<h1>Search Tickets</h1>
+
+<%= form_tag search_path, method: :get, enforce_utf8: false do %>
+  <%=select_tag :start_station_id,
+                options_from_collection_for_select(@railway_stations, :id, :title, params[:start_station_id]),
+                include_blank: true %>
+  —
+  <%=select_tag :end_station_id,
+                options_from_collection_for_select(@railway_stations, :id, :title, params[:end_station_id]),
+                include_blank: true %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<%  if @routes.present? %>
+  <% @routes.each do |route| %>
+    <%  if route.trains.present? %>
+      <% route.trains.each do |train| %>
+        <div>
+          <p>
+            <strong>Train #<%= train.number %></strong>
+            (<%= route.title %>)
+          </p>
+          <p>Departure time: <%= route.start_station.departure_time(route) %></p>
+          <p>Arrival time: <%= route.start_station.arrival_time(route) %></p>
+          <p><%= link_to 'Buy ticket', new_train_ticket_path(train) %></p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<%  end %>
