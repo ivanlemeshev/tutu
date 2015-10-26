@@ -1,6 +1,7 @@
 class RailwayStationsController < ApplicationController
   include ApplicationHelper
 
+  before_action :authenticate_user!
   before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_params]
 
   def index
