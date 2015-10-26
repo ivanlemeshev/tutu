@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
@@ -18,6 +19,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @train.tickets.new(ticket_params)
+    current_user.tickets << @ticket
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket was successfully purchased.'
     else
