@@ -120,7 +120,8 @@ ru:
     title: 'Мои билеты'
   welcome:
     index:
-      welcome: 'Здесы вы надете самые выгодные предложения!'
+      welcome: 'Купи билет здесь!'
+      search_tickets: 'Найти билет'
   admin:
     cars:
         form:

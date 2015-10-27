@@ -1,1 +1,12 @@
-<h1><%= t('.welcome') %></h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="text-center"><%= t('.welcome') %></h1>
+        <p class="text-center">
+          <%= link_to t('.search_tickets'), search_path, class: 'btn btn-primary btn-lg', role: 'button' %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
