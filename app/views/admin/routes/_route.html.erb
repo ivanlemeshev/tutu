@@ -1,0 +1,9 @@
+<tr>
+  <td><%= route.title %></td>
+  <td><%= link_to 'Show', [:admin, route] %></td>
+  <td><%= link_to 'Edit', edit_admin_route_path(route) %></td>
+  <td><%= link_to 'Destroy',
+                  [:admin, route],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+</tr>

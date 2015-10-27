@@ -1,0 +1,34 @@
+<%= form_for [:admin, @train, @car] do |f| %>
+
+  <%= render 'common/errors', resource: @car %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.select :type, Car::TYPES %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bottom_seats %><br>
+    <%= f.text_field :bottom_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :top_seats %><br>
+    <%= f.text_field :top_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :side_bottom_seats %><br>
+    <%= f.text_field :side_bottom_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :side_top_seats %><br>
+    <%= f.text_field :side_top_seats %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

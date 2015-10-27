@@ -9,22 +9,36 @@
 <body>
 
 <header>
+  <strong>
+    <%= link_to 'Tutu', root_path %>
+  </strong>
   <nav>
     <%= link_to 'Search Tickets', search_path %>
-    <%= link_to 'Tickets', tickets_path %>
-    <%= link_to 'Railway Stations', railway_stations_path %>
-    <%= link_to 'Routes', routes_path %>
-    <%= link_to 'Trains', trains_path %>
+    <% if user_signed_in? %>
+        <%= link_to 'My Tickets', tickets_path %>
+
+        <% if current_user.admin? %>
+            <%= link_to 'Dashboard', admin_path %>
+        <% end %>
+    <% end %>
+
+    <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        (<%= current_user.email %>)
+    <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+    <% end%>
   </nav>
 </header>
 
 <section>
+  <%= render 'common/flash' %>
+
   <%= yield %>
 </section>
 
 <footer>
-  &copy; <%= Time.now.year %> Ivan Lemeshev.
-  Training project in the online school Thinknetica.
+  <%= render 'common/copyright' %>
 </footer>
 
 </body>

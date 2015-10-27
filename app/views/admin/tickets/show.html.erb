@@ -1,0 +1,56 @@
+<p>
+  <strong>First Name:</strong>
+  <%= @ticket.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @ticket.last_name %>
+</p>
+
+<p>
+  <strong>Middle Name:</strong>
+  <%= @ticket.middle_name %>
+</p>
+
+<p>
+  <strong>Passport Series:</strong>
+  <%= @ticket.passport_series %>
+</p>
+
+<p>
+  <strong>Passport Number:</strong>
+  <%= @ticket.passport_number %>
+</p>
+
+<p>
+  <strong>Train:</strong>
+  <% if @ticket.train.present? %>
+    <%= @ticket.train.number %>
+  <% else %>
+    not set
+  <% end %>
+</p>
+
+<p>
+  <strong>Start Station:</strong>
+  <% if @ticket.start_station.present? %>
+    <%= @ticket.start_station.title %>
+    (<%= @ticket.start_station.departure_time(@ticket.train.route) %>)
+  <% else %>
+    not set
+  <% end %>
+</p>
+
+<p>
+  <strong>End Station:</strong>
+  <% if @ticket.end_station.present? %>
+    <%= @ticket.end_station.title %>
+    (<%= @ticket.end_station.arrival_time(@ticket.train.route) %>)
+  <% else %>
+    not set
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
+<%= link_to 'Back', admin_tickets_path %>

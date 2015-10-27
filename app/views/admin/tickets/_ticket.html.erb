@@ -1,0 +1,32 @@
+<tr>
+  <td><%= ticket.first_name %></td>
+  <td><%= ticket.last_name %></td>
+  <td><%= ticket.middle_name %></td>
+  <td>
+    <% if ticket.train.present? %>
+      <%= ticket.train.number %>
+    <% else %>
+      not set
+    <% end %>
+  </td>
+  <td>
+    <% if ticket.start_station.present? %>
+      <%= ticket.start_station.title %>
+    <% else %>
+      not set
+    <% end %>
+  </td>
+  <td>
+    <% if ticket.end_station.present? %>
+      <%= ticket.end_station.title %>
+    <% else %>
+      not set
+    <% end %>
+  </td>
+  <td><%= link_to 'Show', [:admin, ticket] %></td>
+  <td><%= link_to 'Edit', edit_admin_ticket_path(ticket) %></td>
+  <td><%= link_to 'Destroy',
+                  [:admin, ticket],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+</tr>

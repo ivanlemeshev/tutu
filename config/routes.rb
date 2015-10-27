@@ -1,18 +1,29 @@
 Rails.application.routes.draw do
-  resources :cars
-  resources :routes
-  resources :tickets
+  devise_for :users, controllers: { sessions: 'sessions' }
 
-  resources :trains do
-    resources :cars, shallow: true
+  resources :tickets, only: [:index, :show, :destroy]
+  resource :search, only: [:show]
+
+  resources :trains, only: [] do
     resources :tickets, shallow: true
   end
 
-  resources :railway_stations do
-    patch :update_params, on: :member
-  end
+  namespace :admin do
+    get '', to: 'main#index', as: '/'
 
-  resource :search, only: [:new, :show, :edit]
+    resources :cars
+    resources :routes
+    resources :tickets, only: [:index, :show, :edit, :update, :destroy]
+
+    resources :trains do
+      resources :cars, shallow: true
+      resources :tickets, shallow: true
+    end
+
+    resources :railway_stations do
+      patch :update_params, on: :member
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,16 @@
 class User < ActiveRecord::Base
+  devise :database_authenticatable, :registerable, :recoverable,
+         :rememberable, :confirmable, :validatable
+
+  validates :first_name, :last_name, presence: true
+
   has_many :tickets
 
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true, email: true
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def owner_of?(ticket)
+    ticket.user_id == id
+  end
 end

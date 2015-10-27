@@ -1,0 +1,36 @@
+<p>
+  <strong>Type:</strong>
+  <%= @car.type_name %>
+</p>
+
+<p>
+  <strong>Bottom seats:</strong>
+  <%= @car.bottom_seats %>
+</p>
+
+<p>
+  <strong>Top seats:</strong>
+  <%= @car.top_seats %>
+</p>
+
+<p>
+  <strong>Side bottom seats:</strong>
+  <%= @car.side_bottom_seats %>
+</p>
+
+<p>
+  <strong>Side top seats:</strong>
+  <%= @car.side_top_seats %>
+</p>
+
+<p>
+  <strong>Train:</strong>
+  <% if @car.train.present? %>
+    <%= link_to @car.train.number, [:admin, @car.train] %>
+  <% else %>
+    not set
+  <% end%>
+</p>
+
+<%= link_to 'Edit', edit_admin_car_path(@car) %> |
+<%= link_to 'Back', [:admin, @car.train] %>
