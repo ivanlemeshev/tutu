@@ -1,55 +1,55 @@
 <p>
-  <strong>First Name:</strong>
+  <strong><%= t('common.first_name') %>:</strong>
   <%= @ticket.first_name %>
 </p>
 
 <p>
-  <strong>Last Name:</strong>
+  <strong><%= t('common.last_name') %>:</strong>
   <%= @ticket.last_name %>
 </p>
 
 <p>
-  <strong>Middle Name:</strong>
+  <strong><%= t('common.middle_name') %>:</strong>
   <%= @ticket.middle_name %>
 </p>
 
 <p>
-  <strong>Passport Series:</strong>
+  <strong><%= t('common.passport_series') %>:</strong>
   <%= @ticket.passport_series %>
 </p>
 
 <p>
-  <strong>Passport Number:</strong>
+  <strong><%= t('common.passport_number') %>:</strong>
   <%= @ticket.passport_number %>
 </p>
 
 <p>
-  <strong>Train:</strong>
+  <strong><%= t('common.train') %>:</strong>
   <% if @ticket.train.present? %>
     <%= @ticket.train.number %>
   <% else %>
-    not set
+      <%= t('common.not_set') %>
   <% end %>
 </p>
 
 <p>
-  <strong>Start Station:</strong>
+  <strong><%= t('common.start_station') %>:</strong>
   <% if @ticket.start_station.present? %>
     <%= @ticket.start_station.title %>
-    (<%= @ticket.start_station.departure_time(@ticket.train.route) %>)
+    (<%= l(@ticket.start_station.departure_time(@ticket.train.route)) %>)
   <% else %>
-    not set
+      <%= t('common.not_set') %>
   <% end %>
 </p>
 
 <p>
-  <strong>End Station:</strong>
+  <strong><%= t('common.end_station') %>:</strong>
   <% if @ticket.end_station.present? %>
     <%= @ticket.end_station.title %>
-    (<%= @ticket.end_station.arrival_time(@ticket.train.route) %>)
+    (<%= l(@ticket.end_station.arrival_time(@ticket.train.route)) %>)
   <% else %>
-    not set
+      <%= t('common.not_set') %>
   <% end %>
 </p>
 
-<%= link_to 'Back', tickets_path %>
+<%= link_to t('common.back'), tickets_path %>

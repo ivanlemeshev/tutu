@@ -1,9 +1,9 @@
-<h1>Listing Routes</h1>
+<h1><%= t('common.routes') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+      <th><%= t('.route_title') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,4 +13,4 @@
   </tbody>
 </table>
 
-<%= link_to 'New Route', new_admin_route_path %>
+<%= link_to t('.new_route'), new_admin_route_path %>

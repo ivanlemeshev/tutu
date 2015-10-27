@@ -1,6 +1,6 @@
-<h1>Editing Car</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', [:admin, @car] %> |
-<%= link_to 'Back', [:admin, @car.train] %>
+<%= link_to t('common.show'), [:admin, @car] %> |
+<%= link_to t('common.back'), [:admin, @car.train] %>

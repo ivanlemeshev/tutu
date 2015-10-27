@@ -1,10 +1,10 @@
 <p>
-  <strong>Trains on the Route:</strong>
+  <strong><%= t('.route_trains') %>:</strong>
 </p>
 
 <p>
   <% if @route.trains.empty? %>
-    Empty list
+    <%= t('common.empty') %>
   <% else %>
   <ul>
     <% @route.trains.each do |train| %>

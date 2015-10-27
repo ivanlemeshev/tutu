@@ -3,12 +3,12 @@
   <%= render 'common/errors', resource: @route %>
 
   <div class="field">
-    <%= f.label :railway_station_ids, 'Route stations' %><br>
+    <%= f.label :railway_station_ids, t('.route_stations') %><br>
     <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit', action: @route.new_record? ? t('common.create') : t('common.update')) %>
   </div>
 
 <% end %>

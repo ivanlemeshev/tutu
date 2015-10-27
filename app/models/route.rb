@@ -45,7 +45,7 @@ class Route < ActiveRecord::Base
   end
 
   def stations_count
-    errors.add(:base, 'Route should contain at least 2 stations') unless railway_stations?
+    errors.add(:base, I18n.t('routes.shod_contain')) unless railway_stations?
   end
 
   def railway_stations?

@@ -1,5 +1,5 @@
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title') %>:</strong>
   <%= @route.title %>
 </p>
 
@@ -7,5 +7,5 @@
 
 <%= render 'route_trains' %>
 
-<%= link_to 'Edit', edit_admin_route_path(@route) %> |
-<%= link_to 'Back', admin_routes_path %>
+<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
+<%= link_to t('common.back'), admin_routes_path %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tutu</title>
+  <title><%= t('.title') %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,30 +10,29 @@
 
 <header>
   <strong>
-    <%= link_to 'Tutu', root_path %>
+    <%= link_to t('.title'), root_path %>
   </strong>
   <nav>
-    <%= link_to 'Search Tickets', search_path %>
+    <%= link_to t('.search_tickets'), search_path %>
     <% if user_signed_in? %>
-        <%= link_to 'My Tickets', tickets_path %>
+        <%= link_to t('.my_tickets'), tickets_path %>
 
         <% if current_user.admin? %>
-            <%= link_to 'Dashboard', admin_path %>
+            <%= link_to t('common.dashboard'), admin_path %>
         <% end %>
     <% end %>
 
     <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <%= link_to t('common.sign_out'), destroy_user_session_path, method: :delete %>
         (<%= current_user.email %>)
     <% else %>
-        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to t('common.sign_in'), new_user_session_path %>
     <% end%>
   </nav>
 </header>
 
 <section>
   <%= render 'common/flash' %>
-
   <%= yield %>
 </section>
 

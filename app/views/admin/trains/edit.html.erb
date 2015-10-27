@@ -1,6 +1,6 @@
-<h1>Editing Train</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', [:admin, @train] %> |
-<%= link_to 'Back', admin_trains_path %>
+<%= link_to t('common.show'), [:admin, @train] %> |
+<%= link_to t('common.back'), admin_trains_path %>

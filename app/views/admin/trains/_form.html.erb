@@ -8,17 +8,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :route_id, 'Route' %><br>
+    <%= f.label :route_id, t('common.route') %><br>
     <%= f.collection_select :route_id, Route.all, :id, :title %>
   </div>
 
   <div class="field">
-    <%= f.label :cars_order, 'Set tail cars order' %><br>
+    <%= f.label :cars_order, t('.tail_order') %><br>
     <%= f.check_box :cars_order %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit', action: @train.new_record? ? t('common.create') : t('common.update')) %>
   </div>
 
 <% end %>

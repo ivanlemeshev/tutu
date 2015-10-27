@@ -1,10 +1,10 @@
 <p>
-  <strong>Railway station in the Route:</strong>
+  <strong><%= t('.route_stations') %>:</strong>
 </p>
 
 <p>
   <% if @route.railway_stations.empty? %>
-    Empty list
+    <%= t('common.empty') %>
   <% else %>
   <table>
     <tbody>
@@ -16,25 +16,25 @@
               <%= hidden_field_tag :route_id, @route.id %><br>
               <table>
                 <tr>
-                  <td>Position:</td>
+                  <td><%= t('.position') %>:</td>
                   <td><%= number_field_tag :position, station.position_in(@route)  %></td>
                 </tr>
                 <tr>
-                  <td>Departure time: </td>
+                  <td><%= t('common.departure_time') %>:</td>
                   <td><%= datetime_select :departure_time,
                                           :date,
                                           start_year: Time.now.year,
                                           default: station.departure_time(@route) %></td>
                 </tr>
                 <tr>
-                  <td>Arrival time:</td>
+                  <td><%= t('common.arrival_time') %>:</td>
                   <td><%= datetime_select :arrival_time,
                                           :date,
                                           start_year: Time.now.year,
                                           default: station.arrival_time(@route) %></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><%= submit_tag 'Change' %></td>
+                  <td colspan="2"><%= submit_tag t('common.change') %></td>
                 </tr>
               </table>
             <% end %>
