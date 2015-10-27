@@ -16,8 +16,8 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = @train.tickets.new(ticket_params)
-    current_user.tickets << @ticket
+    @ticket = current_user.tickets.new(ticket_params)
+    @ticket.train = @train
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket was successfully purchased.'
     else
