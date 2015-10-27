@@ -4,11 +4,11 @@ class TicketsController < ApplicationController
   before_action :set_train, only: [:new, :create]
 
   def index
-    @tickets = Ticket.where(user_id: current_user.id).all
+    @tickets = current_user.tickets
   end
 
   def show
-    redirect_to tickets_path, alert: 'You have no access to this page.' unless ticket_owner?
+    redirect_to tickets_path, alert: 'You have no access to this page.' unless current_user.owner_of?(@ticket)
   end
 
   def new
@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    if ticket_owner?
+    if current_user.owner_of?(@ticket)
       @ticket.destroy
       redirect_to tickets_path, notice: 'Ticket was successfully destroyed.'
     else
@@ -42,10 +42,6 @@ class TicketsController < ApplicationController
 
   def set_train
     @train = Train.find(params[:train_id])
-  end
-
-  def ticket_owner?
-    @ticket.user_id == current_user.id
   end
 
   def ticket_params

@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def owner_of?(ticket)
+    ticket.user_id == id
+  end
 end
