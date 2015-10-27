@@ -1,23 +1,23 @@
 ru:
   alerts:
-    access_denied: 'У вас недостаточно прав для выполнения данного действия'
+    access_denied: 'У вас недостаточно прав для выполнения данного действия.'
   notices:
-    car_created: 'Вагон создан'
-    car_updated: 'Вагон изменен'
-    car_destroyed: 'Вагон удален'
-    railway_station_created: 'Железнодорожная станция создана'
-    railway_station_updated: 'Железнодорожная станция изменена'
-    railway_station_destroyed: 'Железнодорожная станция удалена'
-    params_updated: 'Маршрут изменен'
-    route_created: 'Маршрут создан'
-    route_updated: 'Маршрут изменен'
-    route_destroyed: 'Маршрут удален'
-    ticket_purchased: 'Билет куплен'
-    ticket_updated: 'Билет изменен'
-    ticket_destroyed: 'Билет удален'
-    train_created: 'Поезд создан'
-    train_updated: 'Поезд изменен'
-    train_destroyed: 'Поезд удален'
+    car_created: 'Вагон создан.'
+    car_updated: 'Вагон изменен.'
+    car_destroyed: 'Вагон удален.'
+    railway_station_created: 'Железнодорожная станция создана.'
+    railway_station_updated: 'Железнодорожная станция изменена.'
+    railway_station_destroyed: 'Железнодорожная станция удалена.'
+    params_updated: 'Маршрут изменен.'
+    route_created: 'Маршрут создан.'
+    route_updated: 'Маршрут изменен.'
+    route_destroyed: 'Маршрут удален.'
+    ticket_purchased: 'Билет куплен.'
+    ticket_updated: 'Билет изменен.'
+    ticket_destroyed: 'Билет удален.'
+    train_created: 'Поезд создан.'
+    train_updated: 'Поезд изменен.'
+    train_destroyed: 'Поезд удален.'
     wellcome: 'Добро пожаловать, '
   cars:
     economy: 'Плацкарт'
@@ -40,7 +40,7 @@ ru:
     edit: 'Изменить'
     empty: 'Пусто'
     end_station: 'Конечная станция'
-    errors: 'Пожалуйста исправьте следующие ошибки'
+    errors: 'Пожалуйста, исправьте следующие ошибки'
     first_name: 'Имя'
     last_name: 'Фамилия'
     middle_name: 'Отчество'
@@ -53,6 +53,7 @@ ru:
     search: 'Найти'
     sign_in: 'Войти'
     sign_out: 'Выйти'
+    sign_up: 'Зарегистрироваться'
     show: 'Просмотреть'
     site: 'Сайт'
     sure: 'Вы уверены?'
@@ -66,6 +67,45 @@ ru:
       author: 'Иван Лемешев'
       message: 'Проект онлайн школы'
       school_name: 'Thinknetica'
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: 'Отправить повторно писмьо для подтверждения'
+    mailer:
+      confirmation_instructions:
+        wellcome: 'Добро пожаловать'
+        message: 'Вы можете подтвердить регистрацию по ссылке ниже'
+        confirm_my_account: 'Подтвердить'
+      reset_password_instructions:
+        greeting: 'Привет'
+        message1: 'Кто-то сделал запрос на изменения пароля. Вы можете это сделать перейдя по ссылке ниже.'
+        message2: 'Если вы не хотит менять свой пароль, то проигнорируйте это письмо.'
+        message3: 'Ваш пароль не будет изменен, пока вы не перейдете по ссылке выше и не измените его.'
+        change_my_password: 'Изменить мой пароль.'
+    passwords:
+      edit:
+        change_your_password: 'Изменить пароль'
+        change_my_password: 'Измменить мой пароль'
+        new_password_confirmation: 'Подтверждение нового пароля'
+        new_password: 'Новый пароль'
+        minimum_password: 'Минимум %{count} символов'
+      new:
+        fogot_password: 'Забыли пароль?'
+        send_instruction: 'Отправить мне инструкцию по восстановлению пароля'
+    registrations:
+      new:
+        sign_up: 'Регистрация'
+        submit: 'Зарегистрироваться'
+        minimum_password: 'Минимум %{count} символов'
+    sessions:
+      new:
+        title: 'Вход'
+    shared:
+      links:
+        fogot_password: 'Забыли пароль?'
+        confirmation_instruction: 'Не получили инструкцию по подтверждению учетной записи?'
+        unlock_instruction: 'Не получили инструкции по разблокировке учетной записи?'
+        sign_in_with: 'Войти через '
   layouts:
     admin:
       dashboard: 'Tutu - Панель администратора'

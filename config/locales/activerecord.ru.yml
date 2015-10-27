@@ -27,15 +27,31 @@ ru:
       train:
         number: 'Номер'
       user:
+        email: 'Email'
+        password: 'Парлль'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        middle_name: 'Отчество'
+        password_confirmation: 'Подтверждение пароля'
+        remember_me: 'Запомнить меня'
     errors:
       messages:
         blank: 'не может быть пустым'
         not_a_number: 'должно быть указано числом'
         taken: 'уже существует'
+        invalid: 'некорректный'
+        confirmation: 'не совпадает'
+        too_short: 'слишком короткий'
       models:
         ticket:
           attributes:
             last_name:
               blank: 'не может быть пустой'
             passport_series:
+              blank: 'не может быть пустой'
+        user:
+          attributes:
+            email:
+              taken: 'уже зарегистрирован'
+            last_name:
               blank: 'не может быть пустой'

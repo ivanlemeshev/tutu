@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
          :rememberable, :confirmable, :validatable
 
   validates :first_name, :last_name, presence: true
+  validates :email, email: true
 
   has_many :tickets
 
