@@ -47,6 +47,8 @@
                 <% end %>
             <% end %>
         <% end %>
+    <% elsif params[:start_station_id] && params[:end_station_id]%>
+      <%= t('.not_found') %>
     <%  end %>
   </div>
 </div>
