@@ -11,42 +11,42 @@
 
 <p>
   <strong><%= t('.premium_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.premium'), :bottom) %>
+  <%= @train.car_seats('PremiumCar', :bottom) %>
 </p>
 
 <p>
   <strong><%= t('.coupe_bottom_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.coupe'), :bottom) %>
+  <%= @train.car_seats('CoupeCar', :bottom) %>
 </p>
 
 <p>
   <strong><%= t('.coupe_top_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.coupe'), :top) %>
+  <%= @train.car_seats('CoupeCar', :top) %>
 </p>
 
 <p>
   <strong><%= t('.economy_bottom_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.economy'), :bottom) %>
+  <%= @train.car_seats('EconomyCar', :bottom) %>
 </p>
 
 <p>
   <strong><%= t('.economy_top_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.economy'), :top) %>
+  <%= @train.car_seats('EconomyCar', :top) %>
 </p>
 
 <p>
   <strong><%= t('.economy_side_bottom_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.economy'), :side_bottom) %>
+  <%= @train.car_seats('EconomyCar', :side_bottom) %>
 </p>
 
 <p>
   <strong><%= t('.economy_side_top_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.economy'), :side_top) %>
+  <%= @train.car_seats('EconomyCar', :side_top) %>
 </p>
 
 <p>
   <strong><%= t('.sitting_seats') %>:</strong>
-  <%= @train.car_seats(t('cars.sitting'), :bottom) %>
+  <%= @train.car_seats('SittingCar', :bottom) %>
 </p>
 
 <p>

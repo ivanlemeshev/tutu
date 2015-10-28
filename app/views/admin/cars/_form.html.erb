@@ -4,7 +4,7 @@
 
   <div class="form-group">
     <%= f.label :type %>
-    <%= f.select :type, Car::TYPES, {}, { class: 'form-control' } %>
+    <%= f.select :type,  options_for_select(Car::TYPES.collect { |k, v| [t(v), k] }, @car.type), {}, { class: 'form-control' } %>
   </div>
 
   <div class="form-group">

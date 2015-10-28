@@ -2,10 +2,10 @@ class Car < ActiveRecord::Base
   default_scope { order(:serial_number) }
 
   TYPES = {
-    I18n.t('cars.economy') => 'EconomyCar',
-    I18n.t('cars.coupe')   => 'CoupeCar',
-    I18n.t('cars.premium') => 'PremiumCar',
-    I18n.t('cars.sitting') => 'SittingCar'
+    'EconomyCar' => 'cars.economy',
+    'CoupeCar'   => 'cars.coupe',
+    'PremiumCar' => 'cars.premium',
+    'SittingCar' => 'cars.sitting'
   }
 
   belongs_to :train
