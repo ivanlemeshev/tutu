@@ -1,6 +1,15 @@
-<h1><%= t('common.trains') %></h1>
+<h1 class="page-header">
+  <div class="row">
+    <div class="col-md-6">
+      <%= t('common.trains') %>
+    </div>
+    <div class="col-md-6 text-right">
+      <%= link_to t('.new_train'), new_admin_train_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th><%= t('.number') %></th>
@@ -14,5 +23,3 @@
 </table>
 
 <br>
-
-<%= link_to t('.new_train'), new_admin_train_path %>

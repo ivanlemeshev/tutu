@@ -1,3 +1,5 @@
+<h1 class="page-header"><%= t('common.car') %></h1>
+
 <p>
   <strong><%= t('common.type') %>:</strong>
   <%= @car.type_name %>
@@ -32,5 +34,5 @@
   <% end %>
 </p>
 
-<%= link_to t('common.edit'), edit_admin_car_path(@car) %> |
-<%= link_to t('common.back'), [:admin, @car.train] %>
+<%= link_to t('common.back'), [:admin, @car.train], class: 'btn btn-default' %>
+<%= link_to t('common.edit'), edit_admin_car_path(@car), class: 'btn btn-primary pull-right' %>

@@ -2,13 +2,13 @@
 
   <%= render 'common/errors', resource: @railway_station %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('.submit', action: @railway_station.new_record? ? t('common.create') : t('common.update')) %>
-  </div>
+  <%= link_to t('common.back'), admin_railway_stations_path, class: 'btn btn-default' %>
+  <%= f.submit t('.submit', action: @railway_station.new_record? ? t('common.create') : t('common.update')),
+                            class: 'btn btn-primary pull-right' %>
 
 <% end %>

@@ -1,6 +1,15 @@
-<h1><%= t('common.railway_stations') %></h1>
+<h1 class="page-header">
+ <div class="row">
+   <div class="col-md-6">
+     <%= t('common.railway_stations') %>
+   </div>
+   <div class="col-md-6 text-right">
+     <%= link_to t('.new_station'), new_admin_railway_station_path, class: 'btn btn-primary' %>
+   </div>
+ </div>
+</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th><%= t('.station_title') %></th>
@@ -14,5 +23,3 @@
 </table>
 
 <br>
-
-<%= link_to t('.new_station'), new_admin_railway_station_path %>

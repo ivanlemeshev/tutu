@@ -2,13 +2,15 @@
 
   <%= render 'common/errors', resource: @route %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :railway_station_ids, t('.route_stations') %><br>
-    <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
+    <%= f.collection_select :railway_station_ids,
+                            RailwayStation.all, :id, :title, {},
+                            { multiple: true, class: 'form-control' } %>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('.submit', action: @route.new_record? ? t('common.create') : t('common.update')) %>
-  </div>
+  <%= link_to t('common.back'), admin_routes_path, class: 'btn btn-default' %>
+  <%= f.submit t('.submit', action: @route.new_record? ? t('common.create') : t('common.update')),
+               class: 'btn btn-primary pull-right' %>
 
 <% end %>

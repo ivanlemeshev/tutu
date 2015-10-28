@@ -1,11 +1,10 @@
-<p>
-  <strong><%= t('.title') %>:</strong>
-  <%= @route.title %>
-</p>
+<h1 class="page-header"><%= t('common.route') %></h1>
+
+<p><strong><%= t('.title') %>: </strong><%= @route.title %></p>
 
 <%= render 'route_railway_stations' %>
 
 <%= render 'route_trains' %>
 
-<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
-<%= link_to t('common.back'), admin_routes_path %>
+<%= link_to t('common.back'), admin_routes_path, class: 'btn btn-default' %>
+<%= link_to t('common.edit'), edit_admin_route_path(@route), class: 'btn btn-primary pull-right' %>

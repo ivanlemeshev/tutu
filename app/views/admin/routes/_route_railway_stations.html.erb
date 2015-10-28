@@ -6,35 +6,36 @@
   <% if @route.railway_stations.empty? %>
     <%= t('common.empty') %>
   <% else %>
-  <table>
+  <table class="table table-bordered">
     <tbody>
       <% @route.railway_stations.each do |station| %>
         <tr>
           <td><%= station.title %></td>
           <td>
-            <%= form_tag update_params_admin_railway_station_path(station), method: :patch do %>
+            <%= form_tag update_params_admin_railway_station_path(station), method: :patch, class: 'form-inline' do %>
               <%= hidden_field_tag :route_id, @route.id %><br>
-              <table>
+              <table class="table table-bordered">
                 <tr>
                   <td><%= t('.position') %>:</td>
-                  <td><%= number_field_tag :position, station.position_in(@route)  %></td>
+                  <td><%= number_field_tag :position,
+                                           station.position_in(@route),
+                                           class: 'form-control'  %></td>
                 </tr>
                 <tr>
                   <td><%= t('common.departure_time') %>:</td>
-                  <td><%= datetime_select :departure_time,
-                                          :date,
-                                          start_year: Time.now.year,
-                                          default: station.departure_time(@route) %></td>
+                  <td><%= datetime_select :departure_time, :date,
+                                          { start_year: Time.now.year, default: station.departure_time(@route)},
+                                          { class: 'form-control' } %></td>
                 </tr>
                 <tr>
                   <td><%= t('common.arrival_time') %>:</td>
                   <td><%= datetime_select :arrival_time,
                                           :date,
-                                          start_year: Time.now.year,
-                                          default: station.arrival_time(@route) %></td>
+                                          { start_year: Time.now.year, default: station.arrival_time(@route) },
+                                          { class: 'form-control' }%></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><%= submit_tag t('common.change') %></td>
+                  <td colspan="2"><%= submit_tag t('common.change'), class: 'btn btn-primary pull-right' %></td>
                 </tr>
               </table>
             <% end %>
