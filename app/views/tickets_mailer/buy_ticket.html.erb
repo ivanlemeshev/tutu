@@ -1,0 +1,5 @@
+<p><%= t('mailers.tickets.greeting') %>, <%= @user.full_name %></p>
+
+<p><%= t('mailers.tickets.buy_ticket.you_buy_ticket') %> "<%= @ticket.route_name %>"</p>
+<p><%= t('mailers.tickets.buy_ticket.see_your_ticket') %> <%= link_to t('common.here'), @ticket   %></p>
+<p><%= t('mailers.tickets.see_your_tickets') %> <%= link_to t('common.here'), tickets_url   %></p>
