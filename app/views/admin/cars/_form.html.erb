@@ -2,33 +2,32 @@
 
   <%= render 'common/errors', resource: @car %>
 
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.select :type, Car::TYPES %>
+  <div class="form-group">
+    <%= f.label :type %>
+    <%= f.select :type,  options_for_select(Car::TYPES.collect { |k, v| [t(v), k] }, @car.type), {}, { class: 'form-control' } %>
   </div>
 
-  <div class="field">
-    <%= f.label :bottom_seats %><br>
-    <%= f.text_field :bottom_seats %>
+  <div class="form-group">
+    <%= f.label :bottom_seats %>
+    <%= f.text_field :bottom_seats, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :top_seats %><br>
-    <%= f.text_field :top_seats %>
+  <div class="form-group">
+    <%= f.label :top_seats %>
+    <%= f.text_field :top_seats, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :side_bottom_seats %><br>
-    <%= f.text_field :side_bottom_seats %>
+  <div class="form-group">
+    <%= f.label :side_bottom_seats %>
+    <%= f.text_field :side_bottom_seats, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :side_top_seats %><br>
-    <%= f.text_field :side_top_seats %>
+  <div class="form-group">
+    <%= f.label :side_top_seats %>
+    <%= f.text_field :side_top_seats, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= link_to t('common.back'), [:admin, @car.train], class: 'btn btn-default' %>
+  <%= f.submit t('.submit', action: @car.new_record? ? t('common.create') : t('common.update')), class: 'btn btn-primary pull-right' %>
 
 <% end %>

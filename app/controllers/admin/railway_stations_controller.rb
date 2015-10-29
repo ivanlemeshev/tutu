@@ -21,7 +21,7 @@ class Admin::RailwayStationsController < Admin::BaseController
     @railway_station = RailwayStation.new(railway_station_params)
 
     if @railway_station.save
-      redirect_to [:admin, @railway_station], notice: 'Railway station was successfully created.'
+      redirect_to [:admin, @railway_station], notice: I18n.t('notices.railway_station_created')
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def update
     if @railway_station.update(railway_station_params)
-      redirect_to [:admin, @railway_station], notice: 'Railway station was successfully updated.'
+      redirect_to [:admin, @railway_station], notice: I18n.t('notices.railway_station_updated')
     else
       render 'edit'
     end
@@ -37,7 +37,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def destroy
     @railway_station.destroy
-    redirect_to admin_railway_stations_path, notice: 'Railway station was successfully destroyed.'
+    redirect_to admin_railway_stations_path, notice: I18n.t('notices.railway_station_destroyed')
   end
 
   def update_params
@@ -47,7 +47,7 @@ class Admin::RailwayStationsController < Admin::BaseController
       departure_time: date_hash_to_datetime(params[:departure_time]),
       arrival_time: date_hash_to_datetime(params[:arrival_time])
     })
-    redirect_to [:admin, @route], notice: 'Order updated.'
+    redirect_to [:admin, @route], notice: I18n.t('notices.params_updated')
   end
 
   private

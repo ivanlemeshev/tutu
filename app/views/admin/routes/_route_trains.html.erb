@@ -1,15 +1,17 @@
-<p>
-  <strong>Trains on the Route:</strong>
-</p>
+<p><strong><%= t('.route_trains') %>:</strong></p>
 
 <p>
   <% if @route.trains.empty? %>
-    Empty list
+    <%= t('common.empty') %>
   <% else %>
-  <ul>
-    <% @route.trains.each do |train| %>
-      <li><%= train.number %></li>
-    <% end %>
+  <table class="table table-bordered">
+    <tbody>
+      <% @route.trains.each do |train| %>
+          <tr><td><%= train.number %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+
   </ul>
 <% end%>
 </p>

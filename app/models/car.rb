@@ -1,7 +1,12 @@
 class Car < ActiveRecord::Base
   default_scope { order(:serial_number) }
 
-  TYPES = { economy: 'EconomyCar', coupe: 'CoupeCar', premium: 'PremiumCar', sitting: 'SittingCar' }
+  TYPES = {
+    'EconomyCar' => 'cars.economy',
+    'CoupeCar'   => 'cars.coupe',
+    'PremiumCar' => 'cars.premium',
+    'SittingCar' => 'cars.sitting'
+  }
 
   belongs_to :train
 

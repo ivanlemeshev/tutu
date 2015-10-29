@@ -1,45 +1,87 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Tutu</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : t('.title') %></title>
+    <%= csrf_meta_tags %>
 
-<header>
-  <strong>
-    <%= link_to 'Tutu', root_path %>
-  </strong>
-  <nav>
-    <%= link_to 'Search Tickets', search_path %>
-    <% if user_signed_in? %>
-        <%= link_to 'My Tickets', tickets_path %>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
 
-        <% if current_user.admin? %>
-            <%= link_to 'Dashboard', admin_path %>
-        <% end %>
-    <% end %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        (<%= current_user.email %>)
-    <% else %>
-        <%= link_to 'Sign In', new_user_session_path %>
-    <% end%>
-  </nav>
-</header>
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '144x144' %>
 
-<section>
-  <%= render 'common/flash' %>
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '114x114' %>
 
-  <%= yield %>
-</section>
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '72x72' %>
 
-<footer>
-  <%= render 'common/copyright' %>
-</footer>
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png' %>
 
-</body>
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', rel: 'shortcut icon' %>
+
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to t('.title'), root_path, class: 'navbar-brand' %>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to t('.search_tickets'), search_path %></li>
+            <% if user_signed_in? %>
+                <li><%= link_to t('.my_tickets'), tickets_path %></li>
+            <% end %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                    <li><%= link_to t('common.dashboard'), admin_path %></li>
+                <% end %>
+                <li>
+                  <%= link_to t('common.sign_out') << " (#{current_user.email})", destroy_user_session_path, method: :delete %>
+                </li>
+            <% else %>
+                <li><%= link_to t('common.sign_in'), new_user_session_path %></li>
+            <% end%>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
+
+      <footer>
+        <%= render 'common/copyright' %>
+      </footer>
+
+    </div>
+
+  </body>
 </html>
