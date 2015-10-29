@@ -5,17 +5,23 @@ class Ticket < ActiveRecord::Base
   validates :first_name, :last_name, :middle_name, presence: true
   validates :passport_series, :passport_number, :train_id, presence: true
 
+  after_create :send_notification
+
+  def route_name
+    train.route.title
+  end
+
   def start_station
-    train.route.start_station if has_route?
+    train.route.start_station
   end
 
   def end_station
-    train.route.end_station if has_route?
+    train.route.end_station
   end
 
-  protected
+  private
 
-  def has_route?
-    train.present? && train.route.present?
+  def send_notification
+    TicketsMailer.buy_ticket(self.user, self).deliver_now
   end
 end
