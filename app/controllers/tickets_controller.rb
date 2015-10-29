@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
   end
 
   def show
-    redirect_to tickets_path, alert: 'You have no access to this page.' unless current_user.owner_of?(@ticket)
+    redirect_to tickets_path, alert: I18n.t('alerts.access_denied') unless current_user.owner_of?(@ticket)
   end
 
   def new
@@ -19,7 +19,7 @@ class TicketsController < ApplicationController
     @ticket = current_user.tickets.new(ticket_params)
     @ticket.train = @train
     if @ticket.save
-      redirect_to @ticket, notice: 'Ticket was successfully purchased.'
+      redirect_to @ticket, notice: I18n.t('notices.ticket_purchased')
     else
       render 'new'
     end
@@ -28,9 +28,9 @@ class TicketsController < ApplicationController
   def destroy
     if current_user.owner_of?(@ticket)
       @ticket.destroy
-      redirect_to tickets_path, notice: 'Ticket was successfully destroyed.'
+      redirect_to tickets_path, notice: I18n.t('notices.ticket_destroyed')
     else
-      redirect_to tickets_path, alert: 'You have no access to this page.'
+      redirect_to tickets_path, alert: I18n.t('alerts.access_denied')
     end
   end
 

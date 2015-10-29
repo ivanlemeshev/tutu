@@ -1,0 +1,257 @@
+ru:
+  alerts:
+    access_denied: 'У вас недостаточно прав для выполнения данного действия.'
+  notices:
+    car_created: 'Вагон создан.'
+    car_updated: 'Вагон изменен.'
+    car_destroyed: 'Вагон удален.'
+    railway_station_created: 'Железнодорожная станция создана.'
+    railway_station_updated: 'Железнодорожная станция изменена.'
+    railway_station_destroyed: 'Железнодорожная станция удалена.'
+    params_updated: 'Маршрут изменен.'
+    route_created: 'Маршрут создан.'
+    route_updated: 'Маршрут изменен.'
+    route_destroyed: 'Маршрут удален.'
+    ticket_purchased: 'Билет куплен.'
+    ticket_updated: 'Билет изменен.'
+    ticket_destroyed: 'Билет удален.'
+    train_created: 'Поезд создан.'
+    train_updated: 'Поезд изменен.'
+    train_destroyed: 'Поезд удален.'
+    wellcome: 'Добро пожаловать, '
+  cars:
+    economy: 'Плацкарт'
+    coupe: 'Купе'
+    premium: 'Люкс'
+    sitting: 'Сидячий'
+  routes:
+    shod_contain: 'В маршруте должно быть минимум 2 станции'
+  common:
+    arrival_time: 'Время прибытия'
+    back: 'Назад'
+    buy: 'Купить'
+    buy_ticket: 'Купить билет'
+    car: 'Вагон'
+    cars: 'Вагоны'
+    change: 'Изменить'
+    create: 'Создать'
+    dashboard: 'Панель администратора'
+    departure_time: 'Время отправления'
+    destroy: 'Удалить'
+    edit: 'Изменить'
+    empty: 'Пусто'
+    end_station: 'Конечная станция'
+    errors: 'Пожалуйста, исправьте следующие ошибки'
+    first_name: 'Имя'
+    last_name: 'Фамилия'
+    middle_name: 'Отчество'
+    not_set: 'Не указано'
+    passport_number: 'Номер паспорта'
+    passport_series: 'Серия паспорта'
+    railway_stations: 'Железнодорожные станции'
+    route: 'Маршрут'
+    routes: 'Маршруты'
+    search: 'Найти'
+    sign_in: 'Войти'
+    sign_out: 'Выйти'
+    sign_up: 'Зарегистрироваться'
+    show: 'Просмотреть'
+    site: 'Сайт'
+    sure: 'Вы уверены?'
+    start_station: 'Начальная станция'
+    ticket: 'Билет'
+    tickets: 'Билеты'
+    title: 'Название'
+    train: 'Поезд'
+    trains: 'Поезда'
+    type: 'Тип'
+    update: 'Изменить'
+    copyright:
+      author: 'Иван Лемешев'
+      message: 'Проект онлайн школы'
+      school_name: 'Thinknetica'
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: 'Отправить повторно писмьо для подтверждения'
+    mailer:
+      confirmation_instructions:
+        wellcome: 'Добро пожаловать'
+        message: 'Вы можете подтвердить регистрацию по ссылке ниже'
+        confirm_my_account: 'Подтвердить'
+      reset_password_instructions:
+        greeting: 'Привет'
+        message1: 'Кто-то сделал запрос на изменения пароля. Вы можете это сделать перейдя по ссылке ниже.'
+        message2: 'Если вы не хотит менять свой пароль, то проигнорируйте это письмо.'
+        message3: 'Ваш пароль не будет изменен, пока вы не перейдете по ссылке выше и не измените его.'
+        change_my_password: 'Изменить мой пароль.'
+    passwords:
+      edit:
+        change_your_password: 'Изменить пароль'
+        change_my_password: 'Измменить мой пароль'
+        new_password_confirmation: 'Подтверждение нового пароля'
+        new_password: 'Новый пароль'
+        minimum_password: 'Минимум %{count} символов'
+      new:
+        fogot_password: 'Забыли пароль?'
+        send_instruction: 'Отправить мне инструкцию по восстановлению пароля'
+    registrations:
+      new:
+        sign_up: 'Регистрация'
+        submit: 'Зарегистрироваться'
+        minimum_password: 'Минимум %{count} символов'
+    sessions:
+      new:
+        title: 'Вход'
+    shared:
+      links:
+        fogot_password: 'Забыли пароль?'
+        confirmation_instruction: 'Не получили инструкцию по подтверждению учетной записи?'
+        unlock_instruction: 'Не получили инструкции по разблокировке учетной записи?'
+        sign_in_with: 'Войти через '
+  layouts:
+    admin:
+      dashboard: 'Tutu - Панель администратора'
+    application:
+      title: 'Tutu'
+      search_tickets: 'Найти билеты'
+      my_tickets: 'Мои билеты'
+  searches:
+    show:
+      title: 'Поиск билетов'
+      not_found: 'Не найдено ни одного билета'
+  tickets:
+    title: 'Мои билеты'
+  welcome:
+    index:
+      welcome: 'Купи билет здесь!'
+      search_tickets: 'Найти билет'
+  admin:
+    cars:
+        form:
+          submit: '%{action} вагон'
+        edit:
+          title: 'Редактирование вагона'
+        new:
+          title: 'Новый вагон'
+        show:
+          bottom_seats: 'Количество нижних мест'
+          top_seats: 'Количество верхних мест'
+          side_bottom_seats: 'Количество боковых нижних мест'
+          side_top_seats: 'Количество боковых верхних мест'
+    railway_stations:
+      form:
+        submit: '%{action} железнодорожную станцию'
+      edit:
+        title: 'Редактирование железнодорожной станции'
+      index:
+        station_title: 'Название'
+        new_station: 'Создавть новую железнодорожную станцию'
+      new:
+        title: 'Новая железнодорожная станция'
+      show:
+        station_title: 'Железнодорожная станция'
+    routes:
+      form:
+        submit: '%{action} маршрут'
+        route_stations: 'Станции маршрута'
+      route_railway_stations:
+        route_stations: 'Железнолорожные станции маршрута'
+        position: 'Позиция'
+      route_trains:
+        route_trains: 'Поезда на маршруте'
+      edit:
+        title: 'Редактирование маршрута'
+      index:
+        route_title: 'Название'
+        new_route: 'Создать новый маршрут'
+      new:
+        title: 'Новый маршрут'
+      show:
+        title: 'Название'
+    tickets:
+      form:
+       submit: '%{action} билет'
+      edit:
+        title: 'Редактирование билета'
+    trains:
+      form:
+        tail_order: 'Нумерация с хвоста'
+        submit: '%{action} поезд'
+      edit:
+        title: 'Редактирование поезда'
+      index:
+        number: 'Номер'
+        new_train: 'Создать новый поезд'
+      new:
+        title: 'Новый поезд'
+      show:
+        premium_seats: 'Количество люкс мест'
+        coupe_bottom_seats: 'Количество нижних мест в купе'
+        coupe_top_seats: 'Количество верхних мест в купе'
+        economy_bottom_seats: 'Количество нижних мест в платцкарте'
+        economy_top_seats: 'Количество верхних мест в плацкарте'
+        economy_side_bottom_seats: 'Количество боковых нижних мест в плацкарте'
+        economy_side_top_seats: 'Количество боковых верхних мест в плацкарте'
+        sitting_seats: 'Количество сидячих мест'
+        add_car: 'Добавить вагон'
+  date:
+    abbr_day_names:
+    - Вс
+    - Пн
+    - Вт
+    - Ср
+    - Чт
+    - Пт
+    - Сб
+    abbr_month_names:
+    -
+    - янв.
+    - февр.
+    - марта
+    - апр.
+    - мая
+    - июня
+    - июля
+    - авг.
+    - сент.
+    - окт.
+    - нояб.
+    - дек.
+    day_names:
+    - воскресенье
+    - понедельник
+    - вторник
+    - среда
+    - четверг
+    - пятница
+    - суббота
+    formats:
+      default: "%d.%m.%Y"
+      long: "%-d %B %Y"
+      short: "%-d %b"
+    month_names:
+    -
+    - января
+    - февраля
+    - марта
+    - апреля
+    - мая
+    - июня
+    - июля
+    - августа
+    - сентября
+    - октября
+    - ноября
+    - декабря
+    order:
+    - :day
+    - :month
+    - :year
+  time:
+    am: утра
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      long: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+    pm: вечера

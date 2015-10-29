@@ -8,13 +8,13 @@
     <% if economy_car.train.present? %>
       <%= economy_car.train.number %>
     <% else %>
-      not set
+        <%= t('common.not_set') %>
     <% end %>
   </td>
-  <td><%= link_to 'Show', admin_car_path(economy_car) %></td>
-  <td><%= link_to 'Edit', edit_admin_car_path(economy_car) %></td>
-  <td><%= link_to 'Destroy',
+  <td><%= link_to t('common.show'), admin_car_path(economy_car) %></td>
+  <td><%= link_to t('common.edit'), edit_admin_car_path(economy_car) %></td>
+  <td><%= link_to t('common.destroy'),
                   admin_car_path(economy_car),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
+                  data: { confirm: t('common.sure') } %></td>
 </tr>

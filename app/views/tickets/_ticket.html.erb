@@ -3,25 +3,39 @@
     <% if ticket.train.present? %>
       <%= ticket.train.number %>
     <% else %>
-      not set
+      <%= t('common.not_set') %>
     <% end %>
   </td>
   <td>
     <% if ticket.start_station.present? %>
       <%= ticket.start_station.title %>
     <% else %>
-      not set
+      <%= t('common.not_set') %>
     <% end %>
   </td>
   <td>
     <% if ticket.end_station.present? %>
       <%= ticket.end_station.title %>
     <% else %>
-      not set
+      <%= t('common.not_set') %>
     <% end %>
   </td>
-  <td><%= link_to 'Show', ticket %></td>
-  <td><%= link_to 'Destroy',
+  <td>
+    <% if ticket.start_station.present? %>
+      <%= l(ticket.start_station.departure_time(ticket.train.route)) %>
+    <% else %>
+      <%= t('common.not_set') %>
+    <% end %>
+  </td>
+  <td>
+    <% if ticket.end_station.present? %>
+      <%= l(ticket.end_station.arrival_time(ticket.train.route)) %>
+    <% else %>
+      <%= t('common.not_set') %>
+    <% end %>
+  </td>
+  <td><%= link_to t('common.show'), ticket %></td>
+  <td><%= link_to t('common.destroy'),
                   ticket, method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
+                  data: { confirm: t('common.sure') } %></td>
 </tr>

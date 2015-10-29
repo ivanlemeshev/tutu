@@ -1,9 +1,18 @@
-<h1>Listing Routes</h1>
+<h1 class="page-header">
+  <div class="row">
+    <div class="col-md-6">
+      <%= t('common.routes') %>
+    </div>
+    <div class="col-md-6 text-right">
+      <%= link_to t('.new_route'), new_admin_route_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>Title</th>
+      <th><%= t('.route_title') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,5 +21,3 @@
     <%= render @routes %>
   </tbody>
 </table>
-
-<%= link_to 'New Route', new_admin_route_path %>

@@ -1,84 +1,79 @@
+<h1 class="page-header"><%= t('common.train') %></h1>
+
 <p>
-  <strong>Premium seats:</strong>
-  <%= @train.car_seats(:premium, :bottom) %>
+  <strong><%= t('common.route') %>:</strong>
+  <% if @train.route.present? %>
+      <%= @train.route.title %>
+  <% else %>
+      <%= t('common.not_set') %>
+  <% end%>
 </p>
 
 <p>
-  <strong>Coupe bottom seats:</strong>
-  <%= @train.car_seats(:coupe, :bottom) %>
+  <strong><%= t('.premium_seats') %>:</strong>
+  <%= @train.car_seats('PremiumCar', :bottom) %>
 </p>
 
 <p>
-  <strong>Coupe top seats:</strong>
-  <%= @train.car_seats(:coupe, :top) %>
+  <strong><%= t('.coupe_bottom_seats') %>:</strong>
+  <%= @train.car_seats('CoupeCar', :bottom) %>
 </p>
 
 <p>
-  <strong>Economy bottom seats:</strong>
-  <%= @train.car_seats(:economy, :bottom) %>
+  <strong><%= t('.coupe_top_seats') %>:</strong>
+  <%= @train.car_seats('CoupeCar', :top) %>
 </p>
 
 <p>
-  <strong>Economy top seats:</strong>
-  <%= @train.car_seats(:economy, :top) %>
+  <strong><%= t('.economy_bottom_seats') %>:</strong>
+  <%= @train.car_seats('EconomyCar', :bottom) %>
 </p>
 
 <p>
-  <strong>Economy side bottom seats:</strong>
-  <%= @train.car_seats(:economy, :side_bottom) %>
+  <strong><%= t('.economy_top_seats') %>:</strong>
+  <%= @train.car_seats('EconomyCar', :top) %>
 </p>
 
 <p>
-  <strong>Economy side top seats:</strong>
-  <%= @train.car_seats(:economy, :side_top) %>
+  <strong><%= t('.economy_side_bottom_seats') %>:</strong>
+  <%= @train.car_seats('EconomyCar', :side_bottom) %>
 </p>
 
 <p>
-  <strong>Sitting seats:</strong>
-  <%= @train.car_seats(:sitting, :bottom) %>
+  <strong><%= t('.economy_side_top_seats') %>:</strong>
+  <%= @train.car_seats('EconomyCar', :side_top) %>
 </p>
 
 <p>
-  <%= link_to 'Add car', new_admin_train_car_path(@train) %>
+  <strong><%= t('.sitting_seats') %>:</strong>
+  <%= @train.car_seats('SittingCar', :bottom) %>
 </p>
 
 <p>
-  <strong>Cars:</strong>
+  <%= link_to t('.add_car'), new_admin_train_car_path(@train), class: 'btn btn-primary' %>
+</p>
+
+<p>
+  <strong><%= t('common.cars') %>:</strong>
   <% if @train.cars.present? %>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+  <table class="table table-bordered">
     <tbody>
       <% @train.ordered_cars.each do |car| %>
         <tr>
-          <td><%= link_to "Car #{car.serial_number}", [:admin, car] %></td>
-          <td><%= link_to 'Edit', edit_admin_car_path(car) %></td>
-          <td><%= link_to 'Destroy',
+          <td><%= link_to car.serial_number, [:admin, car] %></td>
+          <td><%= link_to t('common.edit'), edit_admin_car_path(car) %></td>
+          <td><%= link_to t('common.destroy'),
                           [:admin, car],
                           method: :delete,
-                          data: { confirm: 'Are you sure?' } %></td>
+                          data: { confirm: t('common.sure') } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <% else %>
-    not set
-  <% end%>
+    <%= t('common.not_set') %>
+  <% end %>
 </p>
 
-<p>
-  <strong>Route:</strong>
-  <% if @train.route.present? %>
-    <%= @train.route.title %>
-  <% else %>
-    not set
-  <% end%>
-</p>
-
-<%= link_to 'Edit', edit_admin_train_path(@train) %> |
-<%= link_to 'Back', admin_trains_path %>
+<%= link_to t('common.back'), admin_trains_path, class: 'btn btn-default' %>
+<%= link_to t('common.edit'), edit_admin_train_path(@train), class: 'btn btn-primary pull-right' %>
