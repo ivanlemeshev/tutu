@@ -28,7 +28,7 @@ ru:
         number: 'Номер'
       user:
         email: 'Email'
-        password: 'Парлль'
+        password: 'Пароль'
         first_name: 'Имя'
         last_name: 'Фамилия'
         middle_name: 'Отчество'
