@@ -19,6 +19,17 @@ ru:
     train_updated: 'Поезд изменен.'
     train_destroyed: 'Поезд удален.'
     wellcome: 'Добро пожаловать, '
+  mailers:
+    tickets:
+      greeting: 'Привет'
+      see_your_tickets: 'Все свои билеты вы можете посмотреть'
+      buy_ticket:
+        subject: 'Вы купили билет'
+        you_buy_ticket: 'Вы купили билет по маршруту'
+        see_your_ticket: 'Посмотреть билет вы можете'
+      cancel_ticket:
+        subject: 'Вы отменили покупку билета'
+        you_cancel_ticket: 'Вы отменили покупку билета по маршруту'
   cars:
     economy: 'Плацкарт'
     coupe: 'Купе'
@@ -43,6 +54,7 @@ ru:
     end_station: 'Конечная станция'
     errors: 'Пожалуйста, исправьте следующие ошибки'
     first_name: 'Имя'
+    here: 'здесь'
     last_name: 'Фамилия'
     middle_name: 'Отчество'
     not_set: 'Не указано'

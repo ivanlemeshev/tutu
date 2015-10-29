@@ -1,6 +1,5 @@
-<% # TODO: сделать локализацию после мерджа 18го задания %>
-<p>Привет, <%= @user.full_name %></p>
+<p><%= t('mailers.tickets.greeting') %>, <%= @user.full_name %></p>
 
-<p>Вы купили билет по маршруту "<%= @ticket.route_name %>"</p>
-<p>Посмотреть билет вы можете <%= link_to 'здесь', @ticket   %></p>
-<p>Все свои билеты вы можете посмотреть <%= link_to 'здесь', tickets_url   %></p>
+<p><%= t('mailers.tickets.buy_ticket.you_buy_ticket') %> "<%= @ticket.route_name %>"</p>
+<p><%= t('mailers.tickets.buy_ticket.see_your_ticket') %> <%= link_to t('common.here'), @ticket   %></p>
+<p><%= t('mailers.tickets.see_your_tickets') %> <%= link_to t('common.here'), tickets_url   %></p>
