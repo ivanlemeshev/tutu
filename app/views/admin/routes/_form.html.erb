@@ -1,6 +1,6 @@
-<%= form_for [:admin, @route] do |f| %>
+<%= form_for [:admin, route], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |f| %>
 
-  <%= render 'common/errors', resource: @route %>
+  <%= render 'common/errors', resource: route %>
 
   <div class="form-group">
     <%= f.label :railway_station_ids, t('.route_stations') %><br>
@@ -9,8 +9,7 @@
                             { multiple: true, class: 'form-control' } %>
   </div>
 
-  <%= link_to t('common.back'), admin_routes_path, class: 'btn btn-default' %>
-  <%= f.submit t('.submit', action: @route.new_record? ? t('common.create') : t('common.update')),
+  <%= f.submit t('.submit', action: route.new_record? ? t('common.create') : t('common.update')),
                class: 'btn btn-primary pull-right' %>
 
 <% end %>
