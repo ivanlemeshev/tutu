@@ -1,6 +1,6 @@
-<%= form_for [:admin, @train] do |f| %>
+<%= form_for [:admin, train], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |f| %>
 
-  <%= render 'common/errors', resource: @train %>
+  <%= render 'common/errors', resource: train %>
 
   <div class="form-group">
     <%= f.label :number %>
@@ -17,7 +17,6 @@
     <%= f.label :cars_order, t('.tail_order') %>
   </div>
 
-  <%= link_to t('common.back'), admin_trains_path, class: 'btn btn-default' %>
-  <%= f.submit t('.submit', action: @train.new_record? ? t('common.create') : t('common.update')), class: 'btn btn-primary pull-right' %>
+  <%= f.submit t('.submit', action: train.new_record? ? t('common.create') : t('common.update')), class: 'btn btn-primary pull-right' %>
 
 <% end %>
