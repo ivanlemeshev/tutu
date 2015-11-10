@@ -25,6 +25,14 @@ class Car < ActiveRecord::Base
     self.type.gsub('Car', '').downcase
   end
 
+  def has_side_seats?
+    self.type == 'EconomyCar'
+  end
+
+  def has_top_seats?
+    self.type == 'CoupeCar' || self.type == 'EconomyCar'
+  end
+
   private
 
   def set_serial_number

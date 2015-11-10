@@ -12,17 +12,17 @@
     <%= f.text_field :bottom_seats, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="display: <%= @car.has_top_seats? ? 'block' : 'none' %>">
     <%= f.label :top_seats %>
     <%= f.text_field :top_seats, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="display: <%= @car.has_side_seats? ? 'block' : 'none' %>">
     <%= f.label :side_bottom_seats %>
     <%= f.text_field :side_bottom_seats, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="display: <%= @car.has_side_seats? ? 'block' : 'none' %>">
     <%= f.label :side_top_seats %>
     <%= f.text_field :side_top_seats, class: 'form-control' %>
   </div>
